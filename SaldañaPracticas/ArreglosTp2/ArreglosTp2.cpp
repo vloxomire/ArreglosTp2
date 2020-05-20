@@ -53,8 +53,8 @@ Ejemplos:    Array 1: [2][4][3][6][7]    Array 2: [1][5]    Resultado: [2][1][4]
 int main() {
 	//variables
 	srand(time(NULL));
-	const short num1 = 3;
-	const short num2 = 4;
+	const short num1 = 5;
+	const short num2 = 3;
 	unsigned short enteros1[num1];
 	unsigned short enteros2[num2];
 	unsigned short enteros3[num1+num2];
@@ -77,26 +77,33 @@ int main() {
 		int random = rand() % (10 - 1) + 1;
 		enteros2[j] = random;
 		std::cout << enteros2[j]<< ",";
-	}
+	}//esta sano array2
 	//arreglo3
 	std::cout << "\nArreglo 3:\n";
 	pos = 0;
-	for (int x = 0; x < num1  + num2 ; x++)
+	for (int x = 0; x < num1 ; x++)
 	{
+		
 		enteros3[pos] = enteros1[x];
-		pos += 2;
+		pos++;
+		if (num2 > x) {
+			pos++;
+		}
 	}
-	pos = 1;
-	for (int z = 0; z < num1 + num2; z++)
+	pos = 0;
+	for (int z = 0; z <  num2; z++)
 	{
+		if (num1 > z) {
+			pos++;
+		}
 		enteros3[pos] = enteros2[z];
-		pos += 2;
+		pos ++;
+
 	}
 	for (int y = 0; y < num1 + num2; y++)
 	{
 		std::cout << enteros3[y] << ",";
 	}
-
 }
 /*Ejercicio #3 
 Dados 2 arrays, indicar si el primero está contenido dentro del segundo.    Ejemplos:   
