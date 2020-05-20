@@ -4,7 +4,7 @@
 Crear un programa que indique si un array de enteros es capicúa o no. Ojo: el programa  debe funcionar si el array tiene
 una cantidad par o impar, probarlo para ambos casos Ejemplos:   
 [2][4][4][2] es capicúa    [2][4][3][2] NO es capicúa     [1][5][1][5][1] es capicúa    [1][7][1][5][1] NO es capicúa*/
-#include<iostream>
+/*#include<iostream>
 int main() {
 	//variables
 	const int num = 5;
@@ -41,22 +41,63 @@ int main() {
 			std::cout << "\n No capicua\n";
 		}
 	return 0;
-}
-/*Ejercicio #2
-Dados 2 arrays de enteros crear un tercero que tenga los números intercalados. Ojo:  probarlo para arrays de diferentes
-tamaños.    Ejemplos:   
-Array 1: [2][4]    Array 2: [1][5]    Resultado: [2][1][4][5]   
-Ejemplos:    Array 1: [2][4][3][6][7]    Array 2: [1][5]    Resultado: [2][1][4][5][3][6][7]
-#include<iostream>
-int main() {
-	const short num = 5;
-	unsigned short enteros[num]{ 1,2,3,4,5 };
-	for (int i = 0; i < num; i++)
-	{
-
-	}
-}
 }*/
+/*Ejercicio #2
+Dados 2 arrays de enteros crear un tercero que tenga los números intercalados. Ojo:  probarlo
+para arrays de diferentes tamaños.
+Ejemplos:   Array 1: [2][4]    Array 2: [1][5]    Resultado: [2][1][4][5]   
+Ejemplos:    Array 1: [2][4][3][6][7]    Array 2: [1][5]    Resultado: [2][1][4][5][3][6][7]*/
+#include<iostream>
+#include<stdio.h>
+#include<time.h>
+int main() {
+	//variables
+	srand(time(NULL));
+	const short num1 = 3;
+	const short num2 = 4;
+	unsigned short enteros1[num1];
+	unsigned short enteros2[num2];
+	unsigned short enteros3[num1+num2];
+	short pos = 0;
+
+	//arreglo1
+	std::cout <<"Arreglo 1:\n";
+	for (int i = 0; i < num1; i++)
+	{
+		pos = i;
+		int random = rand() % (10 - 1) + 1;
+		enteros1[i] = random;
+		std::cout <<enteros1[i]<<",";
+	}
+	//arreglo2
+	std::cout << "\nArreglo 2:\n";
+	for (int j = 0; j < num2; j++)
+	{
+		pos = j;
+		int random = rand() % (10 - 1) + 1;
+		enteros2[j] = random;
+		std::cout << enteros2[j]<< ",";
+	}
+	//arreglo3
+	std::cout << "\nArreglo 3:\n";
+	pos = 0;
+	for (int x = 0; x < num1  + num2 ; x++)
+	{
+		enteros3[pos] = enteros1[x];
+		pos += 2;
+	}
+	pos = 1;
+	for (int z = 0; z < num1 + num2; z++)
+	{
+		enteros3[pos] = enteros2[z];
+		pos += 2;
+	}
+	for (int y = 0; y < num1 + num2; y++)
+	{
+		std::cout << enteros3[y] << ",";
+	}
+
+}
 /*Ejercicio #3 
 Dados 2 arrays, indicar si el primero está contenido dentro del segundo.    Ejemplos:   
 Array 1: [2][4][3][6][7]    Array 2: [4][3]    Está contenido
