@@ -1,9 +1,9 @@
-/*Saldaña Max Sebastián*/
+/*SaldaÃ±a Max SebastiÃ¡n*/
 /*Practicas de Arreglos Tp2*/
-/*Ejercicio #1 
-Crear un programa que indique si un array de enteros es capicúa o no. Ojo: el programa  debe funcionar si el array tiene
-una cantidad par o impar, probarlo para ambos casos Ejemplos:   
-[2][4][4][2] es capicúa    [2][4][3][2] NO es capicúa     [1][5][1][5][1] es capicúa    [1][7][1][5][1] NO es capicúa*/
+/*Ejercicio #1Â 
+Crear un programa que indique si un array de enteros es capicÃºa o no. Ojo: el programaÂ  debe funcionar si el array tiene
+una cantidad par o impar, probarlo para ambos casos Ejemplos:Â  Â 
+[2][4][4][2] es capicÃºaÂ  Â  [2][4][3][2] NO es capicÃºaÂ Â  Â  [1][5][1][5][1] es capicÃºaÂ  Â  [1][7][1][5][1] NO es capicÃºa*/
 /*#include<iostream>
 int main() {
 	//variables
@@ -43,10 +43,10 @@ int main() {
 	return 0;
 }*/
 /*Ejercicio #2
-Dados 2 arrays de enteros crear un tercero que tenga los números intercalados. Ojo:  probarlo
-para arrays de diferentes tamaños.
-Ejemplos:   Array 1: [2][4]    Array 2: [1][5]    Resultado: [2][1][4][5]   
-Ejemplos:    Array 1: [2][4][3][6][7]    Array 2: [1][5]    Resultado: [2][1][4][5][3][6][7]*/
+Dados 2 arrays de enteros crear un tercero que tenga los nÃºmeros intercalados. Ojo:Â  probarlo
+para arrays de diferentes tamaÃ±os.
+Ejemplos:Â  Â Array 1: [2][4]Â  Â  Array 2: [1][5]Â  Â  Resultado: [2][1][4][5]Â  Â 
+Ejemplos:Â  Â  Array 1: [2][4][3][6][7]Â  Â  Array 2: [1][5]Â  Â  Resultado: [2][1][4][5][3][6][7]*/
 #include<iostream>
 #include<stdio.h>
 #include<time.h>
@@ -105,21 +105,24 @@ int main() {
 		std::cout << enteros3[y] << ",";
 	}
 }
-/*Ejercicio #3 
-Dados 2 arrays, indicar si el primero está contenido dentro del segundo.    Ejemplos:   
-Array 1: [2][4][3][6][7]    Array 2: [4][3]    Está contenido
+/*Ejercicio #3Â 
+Dados 2 arrays, indicar si el primero estÃ¡ contenido dentro del segundo.Â  Â  Ejemplos:Â  Â 
+Array 1: [2][4][3][6][7]Â  Â  Array 2: [4][3]Â  Â  EstÃ¡ contenido
 #include<iostream>
 int main() {
-	const short num = 5;
-	unsigned short enteros[num]{ 1,2,3,4,5 };
-	for (int i = 0; i < num; i++)
-	{
-
+	const short num1 = 5;
+	const short num2=2;
+	unsigned short array1[num1]{ 2,4,3,6,7};
+	unsigned short array2[num2]{ 4,3};
+	
+	for(short i=0;i<num1;i++){
+		if(array2[i]==array1[i]&&array2[i+1]==array1[i+1]){
+			std::couy<<"Si esta contenido\n";
+		}
 	}
-}
 }*/
-/*Ejercicio #4 
-Dado un array de 10 números enteros random crear otro array que contenga esos  mismos números pero ordenados de menor
+/*Ejercicio #4Â 
+Dado un array de 10 nÃºmeros enteros random crear otro array que contenga esosÂ  mismos nÃºmeros pero ordenados de menor
 a mayor.
 #include<iostream>
 int main() {
@@ -131,11 +134,11 @@ int main() {
 	}
 }
 }*/
-/*Ejercicio #5 
-Dado un array de 10 números inicializado con valores hardcodeados, pedirle al usuario  que ingrese un número y un índice.
-El número debe insertarse en el índice y el resto de  los números deben ser desplazados hacia la derecha, eliminando al
-último. Ejemplo:   
-Suponiendo que el array es:    { 1, 5, 7, 3, 20 }    Ingrese número: 2    Ingrese índice: 1    { 1, 2, 5, 7, 3 }
+/*Ejercicio #5Â 
+Dado un array de 10 nÃºmeros inicializado con valores hardcodeados, pedirle al usuarioÂ  que ingrese un nÃºmero y un Ã­ndice.
+El nÃºmero debe insertarse en el Ã­ndice y el resto deÂ  los nÃºmeros deben ser desplazados hacia la derecha, eliminando al
+Ãºltimo. Ejemplo:Â  Â 
+Suponiendo que el array es:Â  Â  { 1, 5, 7, 3, 20 }Â  Â  Ingrese nÃºmero: 2Â  Â  Ingrese Ã­ndice: 1Â  Â  { 1, 2, 5, 7, 3 }
 #include<iostream>
 int main() {
 	const short num = 5;
@@ -146,11 +149,11 @@ int main() {
 	}
 }
 }*/
-/*Ejercicio #6 
-Crear un programa que muestre un tablero de 5 high scores (representado por un array  de 5 enteros). Inicialmente todos
-los puntajes arrancan en 0. El programa debe solicitar el ingreso de un nuevo puntaje por teclado. Una vez que el  usuario
-ingresa un número, este se inserta en el tablero y el tablero se muestra en  pantalla.    El programa debe continuar
-insertando puntajes (en la ubicación que corresponda al  high score) hasta que el usuario ingresa 0.
+/*Ejercicio #6Â 
+Crear un programa que muestre un tablero de 5 high scores (representado por un arrayÂ  de 5 enteros). Inicialmente todos
+los puntajes arrancan en 0. El programa debe solicitar el ingreso de un nuevo puntaje por teclado. Una vez que elÂ  usuario
+ingresa un nÃºmero, este se inserta en el tablero y el tablero se muestra enÂ  pantalla.Â  Â  El programa debe continuar
+insertando puntajes (en la ubicaciÃ³n que corresponda alÂ  high score) hasta que el usuario ingresa 0.
 #include<iostream>
 int main() {
 	const short num = 5;
@@ -161,7 +164,7 @@ int main() {
 	}
 }
 }*/
-/*Ejercicio #7 
+/*Ejercicio #7Â 
 Crear un juego tipo ahorcado con una palabra hardcodeada previamente
 #include<iostream>
 int main() {
