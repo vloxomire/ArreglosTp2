@@ -47,7 +47,7 @@ Dados 2 arrays de enteros crear un tercero que tenga los números intercalados. 
 para arrays de diferentes tamaños.
 Ejemplos:   Array 1: [2][4]    Array 2: [1][5]    Resultado: [2][1][4][5]   
 Ejemplos:    Array 1: [2][4][3][6][7]    Array 2: [1][5]    Resultado: [2][1][4][5][3][6][7]*/
-#include<iostream>
+/*#include<iostream>
 #include<stdio.h>
 #include<time.h>
 int main() {
@@ -104,7 +104,7 @@ int main() {
 	{
 		std::cout << enteros3[y] << ",";
 	}
-}
+}*/
 /*Ejercicio #3 
 Dados 2 arrays, indicar si el primero está contenido dentro del segundo.    Ejemplos:   
 Array 1: [2][4][3][6][7]    Array 2: [4][3]    Está contenido
@@ -112,15 +112,23 @@ Array 1: [2][4][3][6][7]    Array 2: [4][3]    Está contenido
 int main() {
 	const short num1 = 5;
 	const short num2=2;
+	bool si = false;
 	unsigned short array1[num1]{ 2,4,3,6,7};
 	unsigned short array2[num2]{ 4,3};
 	
-	for(short i=0;i<num1;i++){
-		if(array2[i]==array1[i]&&array2[i+1]==array1[i+1]){
-			std::couy<<"Si esta contenido\n";
+	for(short i=0;i<num1-1;i++){
+		if(array2[0]==array1[i]&&array2[1]==array1[i+1]){
+			si=true;
 		}
 	}
-}*/
+	if (si) {
+		std::cout<< "Esta contenido\n";
+	}
+	else {
+		std::cout << "No esta contenido\n";
+	}
+	return 0;
+}
 /*Ejercicio #4 
 Dado un array de 10 números enteros random crear otro array que contenga esos  mismos números pero ordenados de menor
 a mayor.
@@ -157,22 +165,41 @@ insertando puntajes (en la ubicación que corresponda al  high score) hasta que
 #include<iostream>
 int main() {
 	const short num = 5;
-	unsigned short enteros[num]{ 1,2,3,4,5 };
-	for (int i = 0; i < num; i++)
-	{
+	unsigned short puntaje[num]{ 0 };
+	short valor=0;
 
+do{}while(num!=0);
+}
+	short aux=-1;
+for{int i=0;i<num;i++
+	std::cout<<puntaje[i]<<",";	
+}
+std::cout<<"Ingrses el puntaje\n";
+std::cin>>valor;
+for(short i=puntaje-1;i>=0;i--){
+	if(valor>puntaje[i]){
+		aux=i;
 	}
+}
+
+if(aux!=1){
+for(i=aux+1;i>=index;i--){
+	puntaje[i]=puntaje[i-1];
+}
+	puntaje[aux]=valor;
 }
 }*/
 /*Ejercicio #7 
 Crear un juego tipo ahorcado con una palabra hardcodeada previamente
 #include<iostream>
 int main() {
-	const short num = 5;
-	unsigned short enteros[num]{ 1,2,3,4,5 };
-	for (int i = 0; i < num; i++)
-	{
+	const short num = 10;
+	char array[num][num];
 
-	}
-}
+	do
+	{
+		std::cout << "Ingrese una letra\n";
+		std::cin.get(array[num], num);
+	}while (int i = 0; i < num; i++);
 }*/
+
