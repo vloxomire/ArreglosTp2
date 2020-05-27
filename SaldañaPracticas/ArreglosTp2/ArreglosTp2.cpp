@@ -106,24 +106,29 @@ int main() {
 /*Dados 2 arrays, indicar si el primero estC! contenido dentro del segundo.    Ejemplos:*/
 /*Array 1: [2][4][3][6][7]    Array 2: [4][3]    EstC! contenido*/
 /*#include<iostream>
-int main() {
+int main()
+{
 	const short num1 = 5;
-	const short num2=2;
+	const short num2 = 3;
+	short contador = 0;
 	bool si = false;
-	unsigned short array1[num1]{ 2,4,3,6,7};
-	unsigned short array2[num2]{ 4,3};
-
-	for(short i=0;i<num1-1;i++){
-		if(array2[0]==array1[i]&&array2[1]==array1[i+1]){
-			si=true;
+	unsigned short array1[num1]{ 2,4,3,6,7 };
+	unsigned short array2[num2]{ 4,3 ,7};
+	do
+	{
+		for (short i = 0; i < num1; i++)
+		{
+			if (array1[i] == array2[contador])
+			{
+				std::cout << array1[i] << " Es igual " << array2[contador] << std::endl;
+				contador++;
+				if (contador == num2)
+				{
+					si = true;
+				}
+			}
 		}
-	}
-	if (si) {
-		std::cout<< "Esta contenido\n";
-	}
-	else {
-		std::cout << "No esta contenido\n";
-	}
+	} while (si==false);
 	return 0;
 }*/
 /*Ejercicio #4
@@ -255,7 +260,7 @@ int main() {
 			}
 		}
 		//Correr uno para atras
-		
+
 			if (posicion != -1)
 			{
 				for (short i = num - 1; i >= posicion; i--)
@@ -265,7 +270,7 @@ int main() {
 				//reemplazo el valor por de la posicion por el ingresado
 				puntaje[posicion] = valor;
 			}
-		
+
 	} while (valor != 0);
 }*/
 /*Ejercicio #7
