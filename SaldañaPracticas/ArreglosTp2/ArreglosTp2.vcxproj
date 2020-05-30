@@ -140,6 +140,7 @@
   <ItemGroup>
     <ClCompile Include="ArreglosTp2.cpp" />
     <ClCompile Include="BasicoElevatorSimulator.cpp" />
+    <ClCompile Include="FuncionalElevatorSimulator.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

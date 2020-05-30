@@ -6,7 +6,7 @@ e ir avanzando presionando una tecla.
 El simulador termina si el usuario elige y llega al piso 0.
 Se debe limitar el input a los pisos posibles dentro del rango ingresado. 
 */
-#include<iostream>
+/*#include<iostream>
 #include<stdio.h>
 #include<time.h>
 int
@@ -79,4 +79,4 @@ main()
 		system("CLS");
 	} while (pisoInicial != 0);
 	return 0;
-}
+}*/
