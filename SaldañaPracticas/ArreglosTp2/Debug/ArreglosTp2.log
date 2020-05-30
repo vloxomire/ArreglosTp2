@@ -1,2 +1,3 @@
-﻿  ArreglosTp2.cpp
+﻿  BasicoElevatorSimulator.cpp
+C:\0-Cursos\C++\GitHub\ArreglosTp2\SaldañaPracticas\ArreglosTp2\BasicoElevatorSimulator.cpp(26,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
   ArreglosTp2.vcxproj -> C:\0-Cursos\C++\GitHub\ArreglosTp2\SaldañaPracticas\Debug\ArreglosTp2.exe
