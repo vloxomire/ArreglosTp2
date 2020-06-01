@@ -254,7 +254,7 @@ int main()
 
 	std::cout << "Ingrese una oración" << std::endl;
 	std::cin.getline(sentence, 40);
-	//loopeamos hasta el final
+	//loopeamos hasta el final,Recorre el array hasta el punto final
 	while (sentence[indexEnd] != '\0')
 	{
 		indexEnd++;
@@ -267,13 +267,13 @@ int main()
 	{
 		//comenzamos desde el fondo con indexstart
 		indexStart = indexEnd;
-
+		//Encuentra el espacio y salta de atras hacia adelante
 		//loopeamos hasta encontrar un espacio a la izq (o - si ingresan con cin)
 		while (indexStart >= 0 && sentence[indexStart] != ' ')
 		{
 			indexStart--;
 		}
-
+		//copia la palabra
 		//sabemos que nuestra palabra arranca en indexStart y va hasta indexEnd
 		//tambien tenemos nuestra oracion invertida, donde su posicion es invertedIndex
 		for (short i = indexStart + 1; i <= indexEnd; i++)
