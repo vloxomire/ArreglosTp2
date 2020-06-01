@@ -7,26 +7,26 @@ const short indice = 40;
 char oracion[indice]{ '-' };
 short contador = 0;
 //INPUT
-void Ingresar() 
+void Ingresar()
 {
 	std::cout << "Ingrese una oración" << std::endl;
 	std::cin.getline(oracion, indice);
 };
 //METODO
-void Largo() 
+void Largo()
 {
 	for (int i = 0; i < indice; i++)
 		if (oracion[i] != '\0')
 		{
 			contador++;
 		}
-		else 
+		else
 		{
 			i = indice;
 		}
 };
 //OUTPUT
-void Mostrar() 
+void Mostrar()
 {
 	system("CLS");
 	std::cout   << oracion <<"\nEl largo de la oracion es "<<contador<< std::endl;
@@ -139,8 +139,52 @@ return 0;
 /*Ejercicio #4  
 Crear un programa donde se ingrese una oración y se muestre como resultado las letras  invertidas.
     EJ: “Hola soy un programador”  RES: “rodamargorp nu yos aloH”*/
-#include<iostream>
-//VARIABLES
+	/*#include<iostream>
+	//VARIABLES
+	const short indice = 40;
+	char oracion[indice]{ '-' };
+	short contador = 0;
+	//INPUT
+	void Ingresar()
+	{
+		std::cout << "Ingrese una oración" << std::endl;
+		std::cin.getline(oracion, indice);
+	};
+	//METODO
+	void InvertirOracion()
+	{
+		for (size_t i = 0; i < indice; i++)
+		{
+			if (oracion[i] != '\0')
+			{
+				contador++;
+			}
+			else
+			{
+				i = indice;
+			}
+		}
+	};
+	//OUTPUT
+	void Mostrar()
+	{
+		for (size_t i = contador; i > 0; i--)
+		{
+			std::cout << oracion[i - 1];
+		}
+	};
+	int main()
+	{
+		Ingresar();
+		InvertirOracion();
+		Mostrar();
+	return 0;
+	}*/
+	/*Ejercicio #5  
+	Similar al ejercicio anterior, solo que esta vez mostramos las palabras invertidas, no las  letras.
+	    EJ: “Hola soy un programador”  RES: “programador un soy Hola”*/
+/*#include<iostream>
+		//VARIABLES
 const short indice = 40;
 char oracion[indice]{ '-' };
 short contador = 0;
@@ -151,11 +195,11 @@ void Ingresar()
 	std::cin.getline(oracion, indice);
 };
 //METODO
-void InvertirOracion()
+void InvertirPalabras()
 {
 	for (size_t i = 0; i < indice; i++)
 	{
-		if (oracion[i] != '\0') 
+		if (oracion[i] != '\0')
 		{
 			contador++;
 		}
@@ -164,47 +208,90 @@ void InvertirOracion()
 			i = indice;
 		}
 	}
-};
-//OUTPUT
-void Mostrar()
-{
+	short contaEsp = 0;
 	for (size_t i = contador; i > 0; i--)
 	{
-		std::cout << oracion[i - 1];
+		if (oracion[i] == ' ') 
+		{
+			contaEsp = i;
+			for (size_t k = contaEsp+1; k <= contador; k++)
+			{
+				std::cout << oracion[k];
+				if (oracion[k] == '\0') 
+				{
+					for (size_t j = 0; j < contador-contaEsp; j++)
+					{
+						std::cout << oracion[j];
+					}
+				}
+			}
+			
+		}
 	}
-};
-int main()
-{
-	Ingresar();
-	InvertirOracion();
-	Mostrar();
-return 0;
-}
-/*Ejercicio #5  
-Similar al ejercicio anterior, solo que esta vez mostramos las palabras invertidas, no las  letras.
-    EJ: “Hola soy un programador”  RES: “programador un soy Hola”
-#include<iostream>
-//VARIABLES
-const short indice = 20;
-char oracion[indice]{ '-' };
-short contador = 0;
-//INPUT
-void Ingresar()
-{
-	std::cout << "Ingrese una oración" << std::endl;
-	std::cin.getline(oracion, indice);
 };
 //OUTPUT
 void Mostrar()
 {
-	system("CLS");
-	std::cout << oracion << "\nCantidad de vocales que contiene " << contador << std::endl;
+	
 };
 int main()
 {
 	Ingresar();
+	InvertirPalabras();
 	Mostrar();
-return 0;
+	return 0;
+}*/
+#include<iostream>
+int main()
+{
+	char sentence[40] = { '-' };
+	char inverted[40];
+
+	short invertedIndex = 0;
+
+	short indexStart = 0;
+	short indexEnd = 0;
+
+	std::cout << "Ingrese una oración" << std::endl;
+	std::cin.getline(sentence, 40);
+	//loopeamos hasta el final
+	while (sentence[indexEnd] != '\0')
+	{
+		indexEnd++;
+	}
+
+	//restamos 1 ya que estamos sobre el \0
+	indexEnd--;
+
+	do
+	{
+		//comenzamos desde el fondo con indexstart
+		indexStart = indexEnd;
+
+		//loopeamos hasta encontrar un espacio a la izq (o - si ingresan con cin)
+		while (indexStart >= 0 && sentence[indexStart] != ' ')
+		{
+			indexStart--;
+		}
+
+		//sabemos que nuestra palabra arranca en indexStart y va hasta indexEnd
+		//tambien tenemos nuestra oracion invertida, donde su posicion es invertedIndex
+		for (short i = indexStart + 1; i <= indexEnd; i++)
+		{
+			inverted[invertedIndex] = sentence[i];
+			invertedIndex++;
+		}
+
+		//terminada de agregar la palabra, dejamos un espacio y sumamos 1 al index
+		inverted[invertedIndex] = ' ';
+		invertedIndex++;
+
+		//el proximo indexEnd va a arrancar si es posible desde la ultima letra de la palabra anterior (por eso -1, ya que indexstart quedo sobre el espacio)
+		indexEnd = indexStart - 1;
+	} while (indexStart >= 0);
+
+	inverted[invertedIndex] = '\0';
+	std::cout << inverted << std::endl;
 }
 /*Ejercicio #6  
 Crear un programa donde se ingrese una oración y nos muestre una combinación de  números compuesta por la cantidad de
