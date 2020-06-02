@@ -1,2 +1,4 @@
 ﻿  Matriz1.cpp
-  ArreglosTp2.vcxproj -> C:\0-Cursos\C++\GitHub\ArreglosTp2\SaldañaPracticas\Debug\ArreglosTp2.exe
+C:\0-Cursos\C++\GitHub\ArreglosTp2\SaldañaPracticas\ArreglosTp2\Matriz1.cpp(133,17): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\0-Cursos\C++\GitHub\ArreglosTp2\SaldañaPracticas\ArreglosTp2\Matriz1.cpp(133,1): error C2365: 'srand': nueva definición; la definición anterior era 'función'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdlib.h(346): message : vea la declaración de 'srand'

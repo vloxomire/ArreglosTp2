@@ -80,7 +80,7 @@ con O y  X.   
 XOO 
 OXO 
 OOX */
-#include<iostream>
+/*#include<iostream>
 //VARIABLES
 const short fila = 3;
 const short columna = 3;
@@ -118,24 +118,341 @@ int main()
 	LlenarMatriz();
 	MostrarMatriz();
 	return 0;
-}
+}*/
 /*Ejercicio #4  
 Crear un programa que tenga una matriz de chars y llenarla mostrando en cada posición
 una D si es divisible por 2 y una N si no es divisible por el mismo valor. */
+/*#include<iostream>
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+//VARIABLES
+const short fila = 4;
+const short columna = 4;
+short matriz[columna][fila]{0};
+
+void LlenarMatriz()
+{
+	srand(time(NULL));
+	for (size_t i = 0; i < columna; i++)
+	{
+		for (size_t j = 0; j < fila; j++)
+		{
+				matriz[i][j] = rand() % 10;
+		}
+	}
+};
+void MostrarMatriz()
+{
+	for (size_t i = 0; i < columna; i++)
+	{
+		for (size_t j = 0; j < fila; j++)
+		{
+			std::cout << matriz[i][j];
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+};
+void MostrarDoN()
+{
+	for (size_t i = 0; i < columna; i++)
+	{
+		for (size_t j = 0; j < fila; j++)
+		{
+			if (matriz[i][j]%2==0)
+			{
+				std::cout << "D";
+			}
+			else
+			{
+				std::cout << "N";
+			}
+		}
+		std::cout << std::endl;
+	}
+};
+int main()
+{
+	LlenarMatriz();
+	MostrarMatriz();
+	MostrarDoN();
+	return 0;
+}*/
 /*Ejercicio #5  
 Crear un programa que tenga una matriz de enteros y llenarla con valores random
 (entre  2 constantes).   
 Crear una struct POSICIÓN (x,y) e ingresar sus datos para mostrar en pantalla
 que valor  hay en la posición.    Verificar que sea una posición válida.   */
+/*#include<iostream>
+#include<stdio.h>
+#include<time.h>
+//VARIABLES
+struct Posicion
+{
+	short x=0;
+	short y=0;
+}pos;
+const short fila = 4;
+const short columna = 4;
+short matriz[columna][fila]{ 0 };
+
+void LlenarMatriz()
+{
+	srand(time(NULL));
+	for (size_t i = 0; i < columna; i++)
+	{
+		for (size_t j = 0; j < fila; j++)
+		{
+			matriz[i][j] = rand() % 2+1;
+		}
+	}
+};
+void IngresarPosicion()
+{
+	do 
+	{
+		std::cout << "Ingrese la posicion X" << std::endl;
+		std::cin >> pos.x;
+	} while (pos.x>fila);
+	do
+	{
+		std::cout << "Ingrese la posicion Y" << std::endl;
+		std::cin >> pos.y;
+	} while (pos.y>columna);
+	
+};
+void MostrarMatriz()
+{
+	for (size_t i = 0; i < columna; i++)
+	{
+		for (size_t j = 0; j < fila; j++)
+		{
+			std::cout << matriz[i][j];
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+};
+void MostrarPosicion()
+{
+	std::cout << matriz[pos.y][pos.x];	
+};
+int main()
+{
+	LlenarMatriz();
+	IngresarPosicion();
+	MostrarMatriz();
+	MostrarPosicion();
+	return 0;
+}*/
 /*Ejercicio #6 
 Similar al ejercicio #5, solo que esta vez ingresando 2 posiciones e intercambiarlas
 si son  válidas. */
+/*#include<iostream>
+#include<stdio.h>
+#include<time.h>
+//VARIABLES
+struct Posicion
+{
+	short x = 0;
+	short y = 0;
+}pos,pos2;
+const short fila = 4;
+const short columna = 4;
+short matriz[columna][fila]{ 0 };
+
+void LlenarMatriz()
+{
+	srand(time(NULL));
+	for (size_t i = 0; i < columna; i++)
+	{
+		for (size_t j = 0; j < fila; j++)
+		{
+			matriz[i][j] = rand() % 2 + 1;
+		}
+	}
+};
+void IngresarPosicion1()
+{
+	do
+	{
+		std::cout << "Ingrese la posicion X" << std::endl;
+		std::cin >> pos.x;
+	} while (pos.x > fila);
+	do
+	{
+		std::cout << "Ingrese la posicion Y" << std::endl;
+		std::cin >> pos.y;
+	} while (pos.y > columna);
+};
+void IngresarPosicion2()
+{
+	do
+	{
+		std::cout << "Ingrese la posicion X" << std::endl;
+		std::cin >> pos2.x;
+	} while (pos2.x > fila);
+	do
+	{
+		std::cout << "Ingrese la posicion Y" << std::endl;
+		std::cin >> pos2.y;
+	} while (pos2.y > columna);
+};
+void MostrarMatriz()
+{
+	for (size_t i = 0; i < columna; i++)
+	{
+		for (size_t j = 0; j < fila; j++)
+		{
+			std::cout << matriz[i][j];
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+};
+void MostrarPosicion()
+{
+	std::cout << matriz[pos.y][pos.x]<<std::endl;
+	std::cout << matriz[pos2.y][pos2.x];
+};
+int main()
+{
+	LlenarMatriz();
+	IngresarPosicion1();
+	IngresarPosicion2();
+	MostrarMatriz();
+	MostrarPosicion();
+	return 0;
+}*/
 /*Ejercicio #7 
 Crear un programa con una matriz de ints, llenarla con valores random y mostrar cual
 es  el promedio de la sumatoria de la columna indicada. */
+/*#include<iostream>
+#include<stdio.h>
+#include<time.h>
+//VARIABLES
+const short fila = 4;
+const short columna = 4;
+short matriz[columna][fila]{ 0 };
+short elegir = 0;
+short promedio=0;
+
+void LlenarMatriz()
+{
+	srand(time(NULL));
+	for (size_t i = 0; i < columna; i++)
+	{
+		for (size_t j = 0; j < fila; j++)
+		{
+			matriz[i][j] = rand() % 10;
+		}
+	}
+};
+void MostrarMatriz()
+{
+	for (size_t i = 0; i < columna; i++)
+	{
+		for (size_t j = 0; j < fila; j++)
+		{
+			std::cout << matriz[i][j];
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+};
+void IndicarColumna() 
+{
+	do
+	{
+		std::cout << "Indique la columna" << std::endl;
+		std::cin >> elegir;
+	} while (promedio>columna);
+};
+void MostrarPromedio()
+{
+	short suma = 0;
+	while (promedio < columna) 
+	{
+		std::cout << matriz[promedio][elegir] << std::endl;
+		suma = suma + matriz[promedio][elegir];
+		promedio++;
+	}
+	promedio=suma / columna;
+	std::cout << "Promedio "<<promedio << std::endl;
+};
+int main()
+{
+	LlenarMatriz();
+	MostrarMatriz();
+	IndicarColumna();
+	MostrarPromedio();
+	return 0;
+}*/
 /*Ejercicio #8 
 Crear un programa con una matriz de ints, llenarla con valores random y mostrar cual
 es  la posición con el valor más grande. */
+#include<iostream>
+#include<stdio.h>
+#include<time.h>
+//VARIABLES
+const short fila = 4;
+const short columna = 4;
+short matriz[columna][fila]{ 0 };
+short elegir = 0;
+short promedio = 0;
+
+void LlenarMatriz()
+{
+	srand(time(NULL));
+	for (size_t i = 0; i < columna; i++)
+	{
+		for (size_t j = 0; j < fila; j++)
+		{
+			matriz[i][j] = rand() % 10;
+		}
+	}
+};
+void MostrarMatriz()
+{
+	for (size_t i = 0; i < columna; i++)
+	{
+		for (size_t j = 0; j < fila; j++)
+		{
+			std::cout << matriz[i][j];
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+};
+void IndicarColumna()
+{
+	do
+	{
+		std::cout << "Indique la columna" << std::endl;
+		std::cin >> elegir;
+	} while (promedio > columna);
+};
+void MostrarPromedio()
+{
+	short suma = 0;
+	while (promedio < columna)
+	{
+		std::cout << matriz[promedio][elegir] << std::endl;
+		suma = suma + matriz[promedio][elegir];
+		promedio++;
+	}
+	promedio = suma / columna;
+	std::cout << "Promedio " << promedio << std::endl;
+};
+int main()
+{
+	LlenarMatriz();
+	MostrarMatriz();
+	IndicarColumna();
+	MostrarPromedio();
+	return 0;
+}
 /*Ejercicio #9 
 Crear un programa con una matriz de un struct TILE (TIERRA, PARED) y hardcodear los
 valores para “dibujar” un mapa mediante caracteres (- TIERRA / X PARED).
