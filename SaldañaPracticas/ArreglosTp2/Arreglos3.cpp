@@ -241,7 +241,7 @@ int main()
 	Mostrar();
 	return 0;
 }*/
-#include<iostream>
+/*#include<iostream>
 int main()
 {
 	char sentence[40] = { '-' };
@@ -292,7 +292,7 @@ int main()
 
 	inverted[invertedIndex] = '\0';
 	std::cout << inverted << std::endl;
-}
+}*/
 /*Ejercicio #6  
 Crear un programa donde se ingrese una oración y nos muestre una combinación de  números compuesta por la cantidad de
 letras de cada palabra.

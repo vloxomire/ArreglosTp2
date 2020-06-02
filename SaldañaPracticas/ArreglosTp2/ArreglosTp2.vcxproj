@@ -142,6 +142,7 @@
     <ClCompile Include="Arreglos2.cpp" />
     <ClCompile Include="BasicoElevatorSimulator.cpp" />
     <ClCompile Include="FuncionalElevatorSimulator.cpp" />
+    <ClCompile Include="Matriz1.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

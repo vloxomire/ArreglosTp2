@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "tarea-Matrices1",
+      "appliesTo": "SaldañaPracticas/ArreglosTp2/Matrices1.cpp",
+      "type": "launch"
+    }
+  ]
+}
