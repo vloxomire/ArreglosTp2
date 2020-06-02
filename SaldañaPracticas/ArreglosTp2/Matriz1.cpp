@@ -214,12 +214,12 @@ void IngresarPosicion()
 	{
 		std::cout << "Ingrese la posicion X" << std::endl;
 		std::cin >> pos.x;
-	} while (pos.x>fila);
+	} while (pos.x>fila||||pos.x <0);
 	do
 	{
 		std::cout << "Ingrese la posicion Y" << std::endl;
 		std::cin >> pos.y;
-	} while (pos.y>columna);
+	} while (pos.y>columna||||pos.y <0);
 	
 };
 void MostrarMatriz()
@@ -275,29 +275,33 @@ void LlenarMatriz()
 };
 void IngresarPosicion1()
 {
+	std::cout << "Posicion 1" << std::endl;
 	do
 	{
 		std::cout << "Ingrese la posicion X" << std::endl;
 		std::cin >> pos.x;
-	} while (pos.x > fila);
+	} while (pos.x > fila||||pos.x <0);
 	do
 	{
 		std::cout << "Ingrese la posicion Y" << std::endl;
 		std::cin >> pos.y;
-	} while (pos.y > columna);
+	} while (pos.y > columna||pos.y <0);
+	std::cout << "Valor en la posicion "<<matriz[pos.x][pos.y]<<std::endl;
 };
 void IngresarPosicion2()
 {
+	std::cout << "Posicion 2" << std::endl;
 	do
 	{
 		std::cout << "Ingrese la posicion X" << std::endl;
 		std::cin >> pos2.x;
-	} while (pos2.x > fila);
+	} while (pos2.x > fila||pos2.x <0);
 	do
 	{
 		std::cout << "Ingrese la posicion Y" << std::endl;
 		std::cin >> pos2.y;
-	} while (pos2.y > columna);
+	} while (pos2.y > columna||pos2.y< 0);
+	std::cout << "Valor en la posicion " << matriz[pos2.x][pos2.y] << std::endl;
 };
 void MostrarMatriz()
 {
@@ -311,18 +315,21 @@ void MostrarMatriz()
 	}
 	std::cout << std::endl;
 };
-void MostrarPosicion()
+void CambiarPosicion()
 {
-	std::cout << matriz[pos.y][pos.x]<<std::endl;
-	std::cout << matriz[pos2.y][pos2.x];
+	short aux = 0;
+	aux = matriz[pos.x][pos.y];
+	matriz[pos.x][pos.y]= matriz[pos2.x][pos2.y];
+	matriz[pos2.x][pos2.y] = aux;
 };
 int main()
 {
 	LlenarMatriz();
+	MostrarMatriz();
 	IngresarPosicion1();
 	IngresarPosicion2();
+	CambiarPosicion();
 	MostrarMatriz();
-	MostrarPosicion();
 	return 0;
 }*/
 /*Ejercicio #7 
@@ -392,15 +399,15 @@ int main()
 /*Ejercicio #8 
 Crear un programa con una matriz de ints, llenarla con valores random y mostrar cual
 es  la posición con el valor más grande. */
-#include<iostream>
+/*#include<iostream>
 #include<stdio.h>
 #include<time.h>
 //VARIABLES
 const short fila = 4;
 const short columna = 4;
 short matriz[columna][fila]{ 0 };
-short elegir = 0;
-short promedio = 0;
+short grande = 0;
+short x, y;
 
 void LlenarMatriz()
 {
@@ -425,38 +432,34 @@ void MostrarMatriz()
 	}
 	std::cout << std::endl;
 };
-void IndicarColumna()
+void MasGrande()
 {
-	do
+	grande = matriz[0][0];
+	for (size_t i = 0; i < columna; i++)
 	{
-		std::cout << "Indique la columna" << std::endl;
-		std::cin >> elegir;
-	} while (promedio > columna);
-};
-void MostrarPromedio()
-{
-	short suma = 0;
-	while (promedio < columna)
-	{
-		std::cout << matriz[promedio][elegir] << std::endl;
-		suma = suma + matriz[promedio][elegir];
-		promedio++;
+		for (size_t	f = 0; f < fila; f++)
+		{
+			if (matriz[i][f] > grande)
+			{
+				grande = matriz[i][f];
+				x = i;
+				y = f;
+			}
+		}
 	}
-	promedio = suma / columna;
-	std::cout << "Promedio " << promedio << std::endl;
+	std::cout<<"Es el valor mas grande "<<grande <<" y esta en la posicion "<<"x-fila "<<x<<"/"<< "Y-columna "<<y<< std::endl;
 };
 int main()
 {
 	LlenarMatriz();
 	MostrarMatriz();
-	IndicarColumna();
-	MostrarPromedio();
+	MasGrande();
 	return 0;
-}
+}*/
 /*Ejercicio #9 
 Crear un programa con una matriz de un struct TILE (TIERRA, PARED) y hardcodear los
 valores para “dibujar” un mapa mediante caracteres (- TIERRA / X PARED).
-Mostrarlo en pantalla. */
+Mostrarlo en pantalla. (2:35:00)*/
 /*Ejercicio #10 
 Siguiendo el ejercicio #9, insertar un personaje en el mapa y moverlo utilizando WASD.
 Se debe actualizar la posición y comprobar que el casillero sea valido.*/
