@@ -1,5 +1,2 @@
 ﻿  Matriz1.cpp
-C:\0-Cursos\C++\GitHub\ArreglosTp2\SaldañaPracticas\ArreglosTp2\Matriz1.cpp(414,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-C:\0-Cursos\C++\GitHub\ArreglosTp2\SaldañaPracticas\ArreglosTp2\Matriz1.cpp(445,10): warning C4267: '=': conversión de 'size_t' a 'short'; posible pérdida de datos
-C:\0-Cursos\C++\GitHub\ArreglosTp2\SaldañaPracticas\ArreglosTp2\Matriz1.cpp(446,10): warning C4267: '=': conversión de 'size_t' a 'short'; posible pérdida de datos
   ArreglosTp2.vcxproj -> C:\0-Cursos\C++\GitHub\ArreglosTp2\SaldañaPracticas\x64\Debug\ArreglosTp2.exe

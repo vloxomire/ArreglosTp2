@@ -9,7 +9,7 @@ posición la fila a la que corresponde.
 const short fila = 3;
 const short columna = 3;
 short matriz[columna][fila];
-void LlenarMatriz() 
+void LlenarMatriz()
 {
 	for (size_t i = 0; i < columna; i++)
 	{
@@ -95,7 +95,7 @@ void LlenarMatriz()
 			{
 				matriz[i][j] = 'X';
 			}
-			else 
+			else
 			{
 				matriz[i][j] = '0';
 			}
@@ -210,7 +210,7 @@ void LlenarMatriz()
 };
 void IngresarPosicion()
 {
-	do 
+	do
 	{
 		std::cout << "Ingrese la posicion X" << std::endl;
 		std::cin >> pos.x;
@@ -220,7 +220,7 @@ void IngresarPosicion()
 		std::cout << "Ingrese la posicion Y" << std::endl;
 		std::cin >> pos.y;
 	} while (pos.y>columna||||pos.y <0);
-	
+
 };
 void MostrarMatriz()
 {
@@ -236,7 +236,7 @@ void MostrarMatriz()
 };
 void MostrarPosicion()
 {
-	std::cout << matriz[pos.y][pos.x];	
+	std::cout << matriz[pos.y][pos.x];
 };
 int main()
 {
@@ -280,7 +280,7 @@ void IngresarPosicion1()
 	{
 		std::cout << "Ingrese la posicion X" << std::endl;
 		std::cin >> pos.x;
-	} while (pos.x > fila||||pos.x <0);
+	} while (pos.x > fila||pos.x <0);
 	do
 	{
 		std::cout << "Ingrese la posicion Y" << std::endl;
@@ -368,7 +368,7 @@ void MostrarMatriz()
 	}
 	std::cout << std::endl;
 };
-void IndicarColumna() 
+void IndicarColumna()
 {
 	do
 	{
@@ -379,7 +379,7 @@ void IndicarColumna()
 void MostrarPromedio()
 {
 	short suma = 0;
-	while (promedio < columna) 
+	while (promedio < columna)
 	{
 		std::cout << matriz[promedio][elegir] << std::endl;
 		suma = suma + matriz[promedio][elegir];
@@ -457,9 +457,75 @@ int main()
 	return 0;
 }*/
 /*Ejercicio #9 
-Crear un programa con una matriz de un struct TILE (TIERRA, PARED) y hardcodear los
+Crear un programa con una matriz de un enum TILE (TIERRA, PARED) y hardcodear los
 valores para “dibujar” un mapa mediante caracteres (- TIERRA / X PARED).
 Mostrarlo en pantalla. (2:35:00)*/
+/*#include<iostream>
+//VARIABLES
+const short fila = 3;
+const short columna = 3;
+enum class TILE { TIERRA, PARED };
+TILE matriz[columna][fila]{ {TILE::PARED,TILE::TIERRA,TILE::PARED},
+							{TILE::TIERRA,TILE::TIERRA,TILE::TIERRA},
+							{TILE::PARED,TILE::TIERRA,TILE::PARED} };
+
+void Mostrar()
+{
+	for (size_t i = 0; i < columna; i++)
+	{
+		for (size_t j = 0; j < fila; j++)
+		{
+			if (matriz[i][j] == TILE::TIERRA)
+			{
+				std::cout << "-";
+			}
+			else
+			{
+				std::cout << "X";
+			}
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+};
+int main()
+{
+Mostrar();
+return 0;
+}*/
 /*Ejercicio #10 
 Siguiendo el ejercicio #9, insertar un personaje en el mapa y moverlo utilizando WASD.
 Se debe actualizar la posición y comprobar que el casillero sea valido.*/
+#include<iostream>
+//VARIABLES
+const short fila = 5;
+const short columna = 5;
+enum class TILE { TIERRA, PARED };
+TILE matriz[columna][fila]{ {TILE::PARED,TILE::TIERRA,TILE::PARED,TILE::TIERRA,TILE::PARED},
+							{TILE::TIERRA,TILE::TIERRA,TILE::TIERRA,TILE::TIERRA,TILE::PARED},
+							{TILE::PARED,TILE::TIERRA,TILE::PARED,TILE::TIERRA,TILE::PARED} };
+
+void Mostrar()
+{
+	for (size_t i = 0; i < columna; i++)
+	{
+		for (size_t j = 0; j < fila; j++)
+		{
+			if (matriz[i][j] == TILE::TIERRA)
+			{
+				std::cout << "-";
+			}
+			else
+			{
+				std::cout << "X";
+			}
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+};
+int main()
+{
+	Mostrar();
+	return 0;
+}
