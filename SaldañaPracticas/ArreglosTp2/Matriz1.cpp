@@ -562,55 +562,28 @@ void MovimientoPj()
 		std::cin >> tecla;
 		switch (tecla)
 		{
-			
 		case 'w':
-			if (matriz[y][x] == TILE::PJ)
-			{
-				Mostrar();
-				y--;
-				aux = matriz[y - 1][x];
-				matriz[y - 1][x] = matriz[y][x];
-				
-				
-				
-				matriz[y][x] = aux;
-			}
+			
+			aux = matriz[y][x];//salvar valor
+			matriz[y][x] = TILE::PJ;//inserta
+			y--;//baja un punto
+			
+			matriz[y - 1][x] = aux;//inserta valor en la vieja posicion
+			Mostrar();//muestra
+			
+
 			break;
 		case 's':
-
-			if (matriz[y][x] == TILE::PJ)
-			{
-				Mostrar();
-				y++;
-				aux = matriz[y + 1][x];
-				matriz[y + 1][x] = matriz[y][x];
-				
-				
-				matriz[y][x] = aux;
-			}
-
+			y++;
+			Mostrar();
 			break;
 		case 'a':
-			if (matriz[y][x] == TILE::PJ)
-			{
-				Mostrar();
-				x--;
-				aux = matriz[y][x-1];
-				matriz[y][x-1] = matriz[y][x];
-				
-			
-				matriz[y][x] = aux;
-			}
+			Mostrar();
+			x--;
 			break;
 		case 'd':
-			if (matriz[y][x] == TILE::PJ)
-			{
-				Mostrar();
-				x++;
-				aux = matriz[y][x + 1];
-				matriz[y][x + 1] = matriz[y][x];
-				matriz[y][x] = aux;
-			}
+			Mostrar();
+			x++;
 			break;
 		default:
 			break;
