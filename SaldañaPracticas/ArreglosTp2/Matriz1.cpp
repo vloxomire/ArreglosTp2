@@ -508,6 +508,7 @@ TILE matriz[columna][fila]{ {TILE::PARED,TILE::TIERRA,TILE::PARED,TILE::PARED},
 TILE aux;
 short x = 0;
 short y = 0;
+bool posicion = false;
 void Mostrar()
 {
 	for (size_t i = 0; i < columna; i++)
@@ -563,31 +564,77 @@ void MovimientoPj()
 		switch (tecla)
 		{
 		case 'w':
-			
-			aux = matriz[y][x];//salvar valor
-			matriz[y][x] = TILE::PJ;//inserta
-			y--;//baja un punto
-			
-			matriz[y - 1][x] = aux;//inserta valor en la vieja posicion
-			Mostrar();//muestra
-			
-
+			for (size_t i = 0; i < columna; i++)
+			{
+				if (matriz[i][x] == TILE::PJ)
+				{
+					posicion = true;
+				}
+				else
+				{
+					posicion = false;
+				}
+			}
+			if (posicion)
+			{
+				matriz[y-1][x] = TILE::PJ;
+				Mostrar();
+				y--;
+			}
 			break;
 		case 's':
-			y++;
-			Mostrar();
+			for (size_t i = 0; i < columna; i++)
+			{
+				if (matriz[i][x] == TILE::PJ)
+				{
+
+					posicion = true;
+				}
+				
+			}
+			if (posicion)
+			{
+				matriz[y+1][x] = TILE::PJ;
+				Mostrar();
+				y++;
+			}
 			break;
 		case 'a':
-			Mostrar();
-			x--;
+			for (size_t i = 0; i < fila; i++)
+			{
+				if (matriz[y][i] == TILE::PJ)
+				{
+					posicion = true;
+				}
+				
+			}
+			if (posicion)
+			{
+				matriz[y][x-1] = TILE::PJ;
+				Mostrar();
+				x--;
+			}
 			break;
 		case 'd':
-			Mostrar();
-			x++;
+			for (size_t i = 0; i < fila; i++)
+			{
+				if (matriz[y][i] == TILE::PJ)
+				{
+					posicion = true;
+				}
+				
+			}
+			if (posicion)
+			{
+				matriz[y][x + 1] = TILE::PJ;
+				Mostrar();
+				x++;
+			}
 			break;
 		default:
 			break;
 		}
+		posicion=false;
 	} while (tecla != 0);
 };
 int main()
