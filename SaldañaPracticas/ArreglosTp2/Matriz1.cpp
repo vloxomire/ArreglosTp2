@@ -500,12 +500,14 @@ Se debe actualizar la posición y comprobar que el casillero sea valido.*/
 //VARIABLES
 const short fila = 4;
 const short columna = 4;
-enum class TILE { TIERRA, PARED,PJ };
+enum class TILE { TIERRA, PARED, PJ };
 TILE matriz[columna][fila]{ {TILE::PARED,TILE::TIERRA,TILE::PARED,TILE::PARED},
 							{TILE::TIERRA,TILE::TIERRA,TILE::TIERRA,TILE::PARED},
 							{TILE::PARED,TILE::TIERRA,TILE::PARED,TILE::PARED},
 							{TILE::PARED,TILE::TIERRA,TILE::PARED,TILE::PARED} };
-TILE escenario;
+TILE aux;
+short x = 0;
+short y = 0;
 void Mostrar()
 {
 	for (size_t i = 0; i < columna; i++)
@@ -515,13 +517,21 @@ void Mostrar()
 
 			if (matriz[i][j] == TILE::TIERRA)
 			{
-				std::cout << "-";
-				if(matriz[i][j] == TILE::PJ){ std::cout << "H"; }
+
+				if (matriz[i][j] == TILE::PJ) { std::cout << "H"; }
+				else
+				{
+					std::cout << "-";
+				}
 			}
 			else
 			{
-				std::cout << "X";
+
 				if (matriz[i][j] == TILE::PJ) { std::cout << "H"; }
+				else
+				{
+					std::cout << "X";
+				}
 			}
 		}
 		std::cout << std::endl;
@@ -534,32 +544,83 @@ void InsertarPj(int v1, int v2)
 	short val2 = v2;
 	for (size_t i = 0; i < columna; i++)
 	{
-		for (size_t j = 0;j < fila; j++)
+		for (size_t j = 0; j < fila; j++)
 		{
-			if (i==val1 && j== val2)
+			if (i == val1 && j == val2)
 			{
-				escenario = matriz[v1][v2];
+				aux = matriz[v1][v2];
 				matriz[v1][v2] = TILE::PJ;
 			}
 		}
 	}
 }
-void MovimientoPj() 
+void MovimientoPj()
 {
 	char tecla;
 	do
 	{
 		std::cin >> tecla;
-	} while ((tecla >columna && tecla<0)&& fil);
-	//w=matriz[columna-1][fila];
-	//s=matriz[columna+1][fila];
-	//a=matriz[columna][fila-1];
-	//d=matriz[columna][fila+1];
+		switch (tecla)
+		{
+			
+		case 'w':
+			if (matriz[y][x] == TILE::PJ)
+			{
+				Mostrar();
+				y--;
+				aux = matriz[y - 1][x];
+				matriz[y - 1][x] = matriz[y][x];
+				
+				
+				
+				matriz[y][x] = aux;
+			}
+			break;
+		case 's':
+
+			if (matriz[y][x] == TILE::PJ)
+			{
+				Mostrar();
+				y++;
+				aux = matriz[y + 1][x];
+				matriz[y + 1][x] = matriz[y][x];
+				
+				
+				matriz[y][x] = aux;
+			}
+
+			break;
+		case 'a':
+			if (matriz[y][x] == TILE::PJ)
+			{
+				Mostrar();
+				x--;
+				aux = matriz[y][x-1];
+				matriz[y][x-1] = matriz[y][x];
+				
+			
+				matriz[y][x] = aux;
+			}
+			break;
+		case 'd':
+			if (matriz[y][x] == TILE::PJ)
+			{
+				Mostrar();
+				x++;
+				aux = matriz[y][x + 1];
+				matriz[y][x + 1] = matriz[y][x];
+				matriz[y][x] = aux;
+			}
+			break;
+		default:
+			break;
+		}
+	} while (tecla != 0);
 };
 int main()
 {
+	InsertarPj(0, 0);
 	Mostrar();
-	InsertarPj(0,0);
-	Mostrar();
+	MovimientoPj();
 	return 0;
 }
