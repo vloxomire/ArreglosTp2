@@ -519,7 +519,11 @@ void Mostrar()
 			if (matriz[i][j] == TILE::TIERRA)
 			{
 
-				if (matriz[i][j] == TILE::PJ) { std::cout << "H"; }
+				if (matriz[i][j] == TILE::PJ) 
+				{
+					std::cout << "H"; 
+					matriz[y][x] = matriz[i][j];
+				}
 				else
 				{
 					std::cout << "-";
@@ -528,7 +532,11 @@ void Mostrar()
 			else
 			{
 
-				if (matriz[i][j] == TILE::PJ) { std::cout << "H"; }
+				if (matriz[i][j] == TILE::PJ)
+				{
+					std::cout << "H"; 
+					matriz[y][x] = matriz[i][j];
+				}
 				else
 				{
 					std::cout << "X";
@@ -577,8 +585,10 @@ void MovimientoPj()
 			}
 			if (posicion)
 			{
+				aux = matriz[y - 1][x];
 				matriz[y-1][x] = TILE::PJ;
 				Mostrar();
+				matriz[y - 1][x] = aux;
 				y--;
 			}
 			break;
@@ -594,8 +604,10 @@ void MovimientoPj()
 			}
 			if (posicion)
 			{
+				aux = matriz[y + 1][x];
 				matriz[y+1][x] = TILE::PJ;
 				Mostrar();
+				matriz[y + 1][x] = aux;
 				y++;
 			}
 			break;
@@ -610,8 +622,10 @@ void MovimientoPj()
 			}
 			if (posicion)
 			{
+				aux = matriz[y][x - 1];
 				matriz[y][x-1] = TILE::PJ;
 				Mostrar();
+				matriz[y][x - 1]=aux;
 				x--;
 			}
 			break;
@@ -626,8 +640,10 @@ void MovimientoPj()
 			}
 			if (posicion)
 			{
+				aux = matriz[y][x + 1];
 				matriz[y][x + 1] = TILE::PJ;
 				Mostrar();
+				matriz[y][x + 1]=aux;
 				x++;
 			}
 			break;
@@ -636,6 +652,17 @@ void MovimientoPj()
 		}
 		posicion=false;
 	} while (tecla != 0);
+};
+void UbicacionActual() 
+{
+	for (size_t f = 0; f < fila; f++)
+	{
+		for (size_t c = 0; c < columna; c++)
+		{
+			matriz[f][c] = TILE::PJ;
+			std::cout << "Posicion "<<"fila["<<f<<"]columna["<<c<<"]"<<std::endl;
+		}
+	}
 };
 int main()
 {
