@@ -529,14 +529,11 @@ void Mostrar()
 	{
 		for (size_t j = 0; j < fila; j++)
 		{
-
 			if (matriz[i][j] == TILE::TIERRA)
 			{
-
 				if (matriz[i][j] == TILE::PJ) 
 				{
 					std::cout << "H"; 
-					
 				}
 				else
 				{
@@ -545,11 +542,9 @@ void Mostrar()
 			}
 			else
 			{
-
 				if (matriz[i][j] == TILE::PJ)
 				{
 					std::cout << "H"; 
-					
 				}
 				else
 				{
@@ -565,7 +560,6 @@ void InsertarPj()
 {
 	auxiliar2 = matriz[x][y];//toma pared
 	matriz[x][y]=pj;//inserta pj
-	
 }
 void MovimientoPj()
 {
@@ -586,7 +580,6 @@ void MovimientoPj()
 			}
 			if (posicion)
 			{
-
 				matriz[y][x] = auxiliar2;//donde estaba pj, le devolvemos el valor anterior
 				auxiliar2 = matriz[y - 1][x];//la aux tomo el valor del siguiente
 				matriz[y - 1][x] = pj;//pj se inserta en la siguiente
@@ -601,10 +594,8 @@ void MovimientoPj()
 			{
 				if (matriz[i][x] == TILE::PJ)
 				{
-
 					posicion = true;
 				}
-				
 			}
 			if (posicion)
 			{
@@ -623,8 +614,7 @@ void MovimientoPj()
 				if (matriz[y][i] == TILE::PJ)
 				{
 					posicion = true;
-				}
-				
+				}	
 			}
 			if (posicion)
 			{
@@ -644,7 +634,6 @@ void MovimientoPj()
 				{
 					posicion = true;
 				}
-				
 			}
 			if (posicion)
 			{
