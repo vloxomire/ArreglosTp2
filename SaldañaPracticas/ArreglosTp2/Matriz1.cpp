@@ -523,6 +523,17 @@ void UbicacionActual()
 		}
 	}
 };
+void Limite() 
+{
+	if (y >= columna|| y<=0)
+	{
+		std::cout << "Llego al limite de Y" << std::endl;
+	}
+	if (x>=fila||x<=0)
+	{
+		std::cout << "Llego al limite de X" << std::endl;
+	}
+}
 void Mostrar()
 {
 	for (size_t i = 0; i < columna; i++)
@@ -587,9 +598,11 @@ void MovimientoPj()
 				y--;
 				std::cout << "\n";
 				UbicacionActual();
+				Limite();
 			}
 			break;
 		case 's':
+			
 			for (size_t i = 0; i < columna; i++)
 			{
 				if (matriz[i][x] == TILE::PJ)
@@ -606,6 +619,7 @@ void MovimientoPj()
 				y++;
 				std::cout << "\n";
 				UbicacionActual();
+				Limite();
 			}
 			break;
 		case 'a':
@@ -625,6 +639,7 @@ void MovimientoPj()
 				x--;
 				std::cout << "\n";
 				UbicacionActual();
+				Limite();
 			}
 			break;
 		case 'd':
@@ -644,6 +659,7 @@ void MovimientoPj()
 				x++;
 				std::cout << "\n";
 				UbicacionActual();
+				Limite();
 			}
 			break;
 		default:
