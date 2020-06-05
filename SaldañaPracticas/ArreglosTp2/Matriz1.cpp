@@ -505,10 +505,24 @@ TILE matriz[columna][fila]{ {TILE::PARED,TILE::TIERRA,TILE::PARED,TILE::PARED},
 							{TILE::TIERRA,TILE::TIERRA,TILE::TIERRA,TILE::PARED},
 							{TILE::PARED,TILE::TIERRA,TILE::PARED,TILE::PARED},
 							{TILE::PARED,TILE::TIERRA,TILE::PARED,TILE::PARED} };
-TILE aux;
+TILE pj=TILE::PJ;
+TILE auxiliar2=TILE::PARED;
 short x = 0;
 short y = 0;
 bool posicion = false;
+void UbicacionActual()
+{
+	for (size_t f = 0; f < fila; f++)
+	{
+		for (size_t c = 0; c < columna; c++)
+		{
+			if (matriz[f][c] == TILE::PJ)
+			{
+				std::cout << "Posicion " << "fila[" << f << "]columna[" << c << "]" << std::endl;
+			}
+		}
+	}
+};
 void Mostrar()
 {
 	for (size_t i = 0; i < columna; i++)
@@ -522,7 +536,7 @@ void Mostrar()
 				if (matriz[i][j] == TILE::PJ) 
 				{
 					std::cout << "H"; 
-					matriz[y][x] = matriz[i][j];
+					
 				}
 				else
 				{
@@ -535,7 +549,7 @@ void Mostrar()
 				if (matriz[i][j] == TILE::PJ)
 				{
 					std::cout << "H"; 
-					matriz[y][x] = matriz[i][j];
+					
 				}
 				else
 				{
@@ -547,49 +561,39 @@ void Mostrar()
 	}
 	std::cout << std::endl;
 };
-void InsertarPj(int v1, int v2)
+void InsertarPj()
 {
-	short val1 = v1;
-	short val2 = v2;
-	for (size_t i = 0; i < columna; i++)
-	{
-		for (size_t j = 0; j < fila; j++)
-		{
-			if (i == val1 && j == val2)
-			{
-				aux = matriz[v1][v2];
-				matriz[v1][v2] = TILE::PJ;
-			}
-		}
-	}
+	auxiliar2 = matriz[x][y];//toma pared
+	matriz[x][y]=pj;//inserta pj
+	
 }
 void MovimientoPj()
 {
 	char tecla;
 	do
 	{
+		TILE aux2;
 		std::cin >> tecla;
 		switch (tecla)
 		{
 		case 'w':
-			for (size_t i = 0; i < columna; i++)
+			for (size_t i = 0; i < columna; i++)//ojo q i es fila, toma el primer valor como fila
 			{
 				if (matriz[i][x] == TILE::PJ)
 				{
 					posicion = true;
 				}
-				else
-				{
-					posicion = false;
-				}
 			}
 			if (posicion)
 			{
-				aux = matriz[y - 1][x];
-				matriz[y-1][x] = TILE::PJ;
+
+				matriz[y][x] = auxiliar2;//donde estaba pj, le devolvemos el valor anterior
+				auxiliar2 = matriz[y - 1][x];//la aux tomo el valor del siguiente
+				matriz[y - 1][x] = pj;//pj se inserta en la siguiente
 				Mostrar();
-				matriz[y - 1][x] = aux;
 				y--;
+				std::cout << "\n";
+				UbicacionActual();
 			}
 			break;
 		case 's':
@@ -604,11 +608,13 @@ void MovimientoPj()
 			}
 			if (posicion)
 			{
-				aux = matriz[y + 1][x];
-				matriz[y+1][x] = TILE::PJ;
+				matriz[y][x] = auxiliar2;//donde estaba pj, le devolvemos el valor anterior
+				auxiliar2 = matriz[y + 1][x];//la aux tomo el valor del siguiente
+				matriz[y + 1][x]=pj;//pj se inserta en la siguiente
 				Mostrar();
-				matriz[y + 1][x] = aux;
 				y++;
+				std::cout << "\n";
+				UbicacionActual();
 			}
 			break;
 		case 'a':
@@ -622,11 +628,13 @@ void MovimientoPj()
 			}
 			if (posicion)
 			{
-				aux = matriz[y][x - 1];
-				matriz[y][x-1] = TILE::PJ;
+				matriz[y][x] = auxiliar2;//donde estaba pj, le devolvemos el valor anterior
+				auxiliar2 = matriz[y][x-1];//la aux tomo el valor del siguiente
+				matriz[y][x-1] = pj;//pj se inserta en la siguiente
 				Mostrar();
-				matriz[y][x - 1]=aux;
 				x--;
+				std::cout << "\n";
+				UbicacionActual();
 			}
 			break;
 		case 'd':
@@ -640,11 +648,13 @@ void MovimientoPj()
 			}
 			if (posicion)
 			{
-				aux = matriz[y][x + 1];
-				matriz[y][x + 1] = TILE::PJ;
+				matriz[y][x] = auxiliar2;//donde estaba pj, le devolvemos el valor anterior
+				auxiliar2 = matriz[y][x + 1];//la aux tomo el valor del siguiente
+				matriz[y][x + 1] = pj;//pj se inserta en la siguiente
 				Mostrar();
-				matriz[y][x + 1]=aux;
 				x++;
+				std::cout << "\n";
+				UbicacionActual();
 			}
 			break;
 		default:
@@ -653,20 +663,9 @@ void MovimientoPj()
 		posicion=false;
 	} while (tecla != 0);
 };
-void UbicacionActual() 
-{
-	for (size_t f = 0; f < fila; f++)
-	{
-		for (size_t c = 0; c < columna; c++)
-		{
-			matriz[f][c] = TILE::PJ;
-			std::cout << "Posicion "<<"fila["<<f<<"]columna["<<c<<"]"<<std::endl;
-		}
-	}
-};
 int main()
 {
-	InsertarPj(0, 0);
+	InsertarPj();
 	Mostrar();
 	MovimientoPj();
 	return 0;
