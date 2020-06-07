@@ -510,6 +510,7 @@ TILE auxiliar2=TILE::PARED;
 short x = 0;
 short y = 0;
 bool posicion = false;
+void Mostrar();
 void UbicacionActual()
 {
 	for (size_t f = 0; f < fila; f++)
@@ -523,15 +524,49 @@ void UbicacionActual()
 		}
 	}
 };
-void Limite() 
+void
+Limite()
 {
-	if (y >= columna|| y<=0)
+	if (y >= columna || y < 0)
 	{
-		std::cout << "Llego al limite de Y" << std::endl;
+		std::cout << "Se paso del limite de Y" << std::endl;
+		if (y >= columna)
+		{
+			std::cout << "Conviritiendo" << std::endl;
+			auxiliar2 = matriz[y - 1][x];	//la aux tomo el valor del siguiente
+			matriz[y - 1][x] = pj;	//pj se inserta en la siguiente
+			Mostrar();
+			y--;
+		}
+		else
+		{
+			std::cout << "Conviritiendo" << std::endl;
+			auxiliar2 = matriz[y + 1][x];	//la aux tomo el valor del siguiente
+			matriz[y + 1][x] = pj;	//pj se inserta en la siguiente
+			Mostrar();
+			y++;
+		}
 	}
-	if (x>=fila||x<=0)
+	//HAY ALGO MAL EN LOSLIMITES DE LA X, CONTROLAR
+	if (x >= fila || x < 0)
 	{
-		std::cout << "Llego al limite de X" << std::endl;
+		std::cout << "Se paso del limite de X" << std::endl;
+		if (x >= fila)
+		{
+			std::cout << "Conviritiendo" << std::endl;
+			auxiliar2 = matriz[y][x - 1];	//la aux tomo el valor del siguiente
+			matriz[y][x - 1] = pj;	//pj se inserta en la siguiente
+			Mostrar();
+			x--;
+		}
+		else
+		{
+			std::cout << "Conviritiendo" << std::endl;
+			auxiliar2 = matriz[y][x + 1];	//la aux tomo el valor del siguiente
+			matriz[y][x + 1] = pj;	//pj se inserta en la siguiente
+			Mostrar();
+			x++;
+		}
 	}
 }
 void Mostrar()
@@ -587,11 +622,16 @@ void MovimientoPj()
 				if (matriz[i][x] == TILE::PJ)
 				{
 					posicion = true;
+					
 				}
 			}
 			if (posicion)
 			{
 				matriz[y][x] = auxiliar2;//donde estaba pj, le devolvemos el valor anterior
+				if (y == 0) 
+				{
+					y = 1;
+				}
 				auxiliar2 = matriz[y - 1][x];//la aux tomo el valor del siguiente
 				matriz[y - 1][x] = pj;//pj se inserta en la siguiente
 				Mostrar();
@@ -633,6 +673,10 @@ void MovimientoPj()
 			if (posicion)
 			{
 				matriz[y][x] = auxiliar2;//donde estaba pj, le devolvemos el valor anterior
+				if (x == 0)
+				{
+					x = 1;
+				}
 				auxiliar2 = matriz[y][x-1];//la aux tomo el valor del siguiente
 				matriz[y][x-1] = pj;//pj se inserta en la siguiente
 				Mostrar();
@@ -653,6 +697,10 @@ void MovimientoPj()
 			if (posicion)
 			{
 				matriz[y][x] = auxiliar2;//donde estaba pj, le devolvemos el valor anterior
+				if (x == 3)
+				{
+					x = 2;
+				}
 				auxiliar2 = matriz[y][x + 1];//la aux tomo el valor del siguiente
 				matriz[y][x + 1] = pj;//pj se inserta en la siguiente
 				Mostrar();
