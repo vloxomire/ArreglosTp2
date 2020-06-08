@@ -496,7 +496,7 @@ return 0;
 /*Ejercicio #10 
 Siguiendo el ejercicio #9, insertar un personaje en el mapa y moverlo utilizando WASD.
 Se debe actualizar la posición y comprobar que el casillero sea valido.*/
-#include<iostream>
+/*#include<iostream>
 //VARIABLES
 const short fila = 4;
 const short columna = 4;
@@ -547,7 +547,6 @@ Limite()
 			y++;
 		}
 	}
-	//HAY ALGO MAL EN LOSLIMITES DE LA X, CONTROLAR
 	if (x >= fila || x < 0)
 	{
 		std::cout << "Se paso del limite de X" << std::endl;
@@ -697,7 +696,7 @@ void MovimientoPj()
 			if (posicion)
 			{
 				matriz[y][x] = auxiliar2;//donde estaba pj, le devolvemos el valor anterior
-				if (x == 3)
+				if (x == fila-1)
 				{
 					x = 2;
 				}
@@ -722,4 +721,4 @@ int main()
 	Mostrar();
 	MovimientoPj();
 	return 0;
-}
+}*/

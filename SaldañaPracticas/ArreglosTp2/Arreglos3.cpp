@@ -296,27 +296,62 @@ int main()
 /*Ejercicio #6  
 Crear un programa donde se ingrese una oración y nos muestre una combinación de  números compuesta por la cantidad de
 letras de cada palabra.
-    EJ: “Hola soy un programador”  RES: “4-3-2-11”
+    EJ: “Hola soy un programador”  RES: “4-3-2-11”*/
 #include<iostream>
 //VARIABLES
-const short indice = 20;
+const short indice = 40;
 char oracion[indice]{ '-' };
-short contador = 0;
+short duplicado[indice];
+short contar = 0;
+short posicionEspacio = 0;
+short palabra = 0;
+short x = 0;
 //INPUT
 void Ingresar()
 {
 	std::cout << "Ingrese una oración" << std::endl;
 	std::cin.getline(oracion, indice);
 };
+void ContarPalabra()
+{
+	for (size_t i = 0; i < indice; i++)
+	{
+		if (oracion[i]!='\0')
+		{
+			palabra++;
+		}
+	}
+	for (size_t i = 0; i < indice; i++)
+	{
+		if (oracion[i]!=' ' && oracion[i]!='\0')
+		{
+			contar++;
+		}
+		else
+		{
+			 
+			duplicado[x] = contar;
+			x++;
+			contar = 0;
+			
+		}
+		
+	}
+	
+};
 //OUTPUT
 void Mostrar()
 {
-	system("CLS");
-	std::cout << oracion << "\nCantidad de vocales que contiene " << contador << std::endl;
+	std::cout << std::endl;
+	for (size_t i = 0; i < x; i++)
+	{
+		std::cout<<duplicado[i]<<"-";
+	}
 };
 int main()
 {
 	Ingresar();
+	ContarPalabra();
 	Mostrar();
 return 0;
 }
