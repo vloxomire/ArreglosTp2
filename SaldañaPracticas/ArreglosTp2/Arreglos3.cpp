@@ -182,417 +182,370 @@ EJ: “Hola soy un programador”  RES: “rodamargorp nu yos aloH”*/
 	}*/
 	/*Ejercicio #5  
 	Similar al ejercicio anterior, solo que esta vez mostramos las palabras invertidas, no las  letras.
-	    EJ: “Hola soy un programador”  RES: “programador un soy Hola”*/
-		/*#include<iostream>
-				//VARIABLES
-		const short indice = 40;
-		char oracion[indice]{ '-' };
-		short contador = 0;
-		//INPUT
-		void Ingresar()
-		{
-			std::cout << "Ingrese una oración" << std::endl;
-			std::cin.getline(oracion, indice);
-		};
-		//METODO
-		void InvertirPalabras()
-		{
-			for (size_t i = 0; i < indice; i++)
-			{
-				if (oracion[i] != '\0')
-				{
-					contador++;
-				}
-				else
-				{
-					i = indice;
-				}
-			}
-			short contaEsp = 0;
-			for (size_t i = contador; i > 0; i--)
-			{
-				if (oracion[i] == ' ')
-				{
-					contaEsp = i;
-					for (size_t k = contaEsp+1; k <= contador; k++)
-					{
-						std::cout << oracion[k];
-						if (oracion[k] == '\0')
-						{
-							for (size_t j = 0; j < contador-contaEsp; j++)
-							{
-								std::cout << oracion[j];
-							}
-						}
-					}
-
-				}
-			}
-		};
-		//OUTPUT
-		void Mostrar()
-		{
-
-		};
-		int main()
-		{
-			Ingresar();
-			InvertirPalabras();
-			Mostrar();
-			return 0;
-		}*/
-		/*#include<iostream>
-		int main()
-		{
-			char sentence[40] = { '-' };
-			char inverted[40];
-
-			short invertedIndex = 0;
-
-			short indexStart = 0;
-			short indexEnd = 0;
-
-			std::cout << "Ingrese una oración" << std::endl;
-			std::cin.getline(sentence, 40);
-			//loopeamos hasta el final,Recorre el array hasta el punto final
-			while (sentence[indexEnd] != '\0')
-			{
-				indexEnd++;
-			}
-
-			//restamos 1 ya que estamos sobre el \0
-			indexEnd--;
-
-			do
-			{
-				//comenzamos desde el fondo con indexstart
-
-				indexStart = indexEnd;
-
-				//Encuentra el espacio y salta de atras hacia adelante
-				//loopeamos hasta encontrar un espacio a la izq (o - si ingresan con cin)
-
-				while (indexStart >= 0 && sentence[indexStart] != ' ')
-				{
-					indexStart--;
-				}
-				//copia la palabra
-				//sabemos que nuestra palabra arranca en indexStart y va hasta indexEnd
-				//tambien tenemos nuestra oracion invertida, donde su posicion es invertedIndex
-				for (short i = indexStart + 1; i <= indexEnd; i++)
-				{
-					inverted[invertedIndex] = sentence[i];
-					invertedIndex++;
-				}
-
-				//terminada de agregar la palabra, dejamos un espacio y sumamos 1 al index
-				inverted[invertedIndex] = ' ';
-				invertedIndex++;
-
-				//el proximo indexEnd va a arrancar si es posible desde la ultima letra de la palabra anterior (por eso -1, ya que indexstart quedo sobre el espacio)
-				indexEnd = indexStart - 1;
-			} while (indexStart >= 0);
-
-			inverted[invertedIndex] = '\0';
-			std::cout << inverted << std::endl;
-		}*/
-		/*Ejercicio #6  
-		Crear un programa donde se ingrese una oración y nos muestre una combinación de  números compuesta por la cantidad de
-		letras de cada palabra.
-		    EJ: “Hola soy un programador”  RES: “4-3-2-11”*/
-			/*#include<iostream>
-			//VARIABLES
-			const short indice = 40;
-			char oracion[indice]{ '-' };
-			short duplicado[indice];
-			short contar = 0;
-			short posicionEspacio = 0;
-			short palabra = 0;
-			short x = 0;
-			short limite = 0;
-			//INPUT
-			void Ingresar()
-			{
-				std::cout << "Ingrese una oración" << std::endl;
-				std::cin.getline(oracion, indice);
-			};
-			void ContarPalabra()
-			{
-
-				for (size_t i = 0; i < indice; i++)
-				{
-					if (oracion[i]!='\0')
-					{
-						palabra++;
-					}
-				}
-				for (size_t i = 0; i <= palabra; i++)
-				{
-					if (oracion[i]!=' ' && oracion[i]!='\0')
-					{
-						contar++;
-					}
-					else
-					{
-						std::cout << contar << ",";
-						contar = 0;
-
-					}
-
-				}
-
-			};
-			int main()
-			{
-				Ingresar();
-				ContarPalabra();
-			return 0;
-			}*/
-			/*Ejercicio #7 
-			Crear un programa donde se ingrese una oración y luego una palabra para verificar si
-			existe en la oración.*/
-			/*#include<iostream>
-						//VARIABLES
-			const short index = 10;
-			const short indice = 40;
-			char oracion[indice]{ "Hola soy un programador" };
-			char palabra[index]{};
-			char ayuda[index];
-			bool buscar = false;
-			short final = 0;
-			int inicio = 0;
-			short largoOracion = 0;
-			int largoPalabra = 0;
-			//INPUT
-			void Ingresar()
-			{
-				//std::cout << "Ingrese una oración" << std::endl;
-				//std::cin.getline(oracion, indice);
-				std::cout << "Ingrese la palabra a buscar" << std::endl;
-				std::cin.getline(palabra, indice);
-			};
-			void BuscarPalabra()
-			{
-				while (oracion[final] != '\0')
-				{
-					final++;//Recorre el array hasta el final
-				}
-				largoOracion = final;
-				final = 0;
-				while (palabra[final] != '\0')
-				{
-					final++;//Recorre la palabra hasta el final
-				}
-				largoPalabra = final;
-				final = 0;
-				while (inicio <= largoOracion - largoPalabra && !buscar)
-				{
-					buscar = true;
-					final = 0;
-					for (size_t i = inicio; i < inicio + largoPalabra; i++)
-					{
-						if (oracion[i] != palabra[final])
-						{
-							buscar = false;
-							break;
-						}
-						final++;
-					}
-					while (oracion[inicio] != ' ' && oracion[inicio] != '\0')
-					{
-						inicio++;
-					}
-					inicio++;
-				}
-			};
-			//OUTPUT
-			void Mostrar()
-			{
-				if (buscar)
-				{
-					std::cout << palabra << "\nSe encuentra en la oracion " << oracion << std::endl;
-				}
-				else
-				{
-					std::cout << "No se encuentra" << std::endl;
-				}
-			};
-			int main()
-			{
-				Ingresar();
-				BuscarPalabra();
-				Mostrar();
-				return 0;
-			}*/
-			/*Ejercicio #8 
-			Crear un programa donde se ingrese una oración y luego se pase cada una de sus letras  a mayúscula.*/
-/*#include<iostream>
-			//VARIABLES
-const short indice = 40;
-
-char duplicado[indice]{};
-short conta = 0;
-
-//INPUT
-void Ingresar()
-{
-	//std::cout << "Ingrese una oración" << std::endl;
-	//std::cin.getline(oracion, indice);
-};
-void limiteArray(char oracion[indice])
-{
-	while (oracion[conta] != '\0')
-	{
-		conta++;
-	}
-};
-void Mayuscula(char oracion[indice])
-{
-	limiteArray(oracion);
-	for (size_t i = 0; i < conta; i++)
-	{
-		if (oracion[i] > 92)
-		{
-			oracion[i] -= 32;
-			std::cout << oracion[i];
-		}
-		else
-		{
-			oracion[i];
-			std::cout << oracion[i];
-		}
-	}
-};
-int main()
-{
-	char oracion[indice]{ "Hola soy programador" };
-	//Ingresar();
-	Mayuscula(oracion);
-	return 0;
-}*/
-/*Ejercicio #9 
-Crear un programa donde se (1)ingrese una oración y luego (2)borre todas las vocales que tenga.*/
+	EJ: “Hola soy un programador”  RES: “programador un soy Hola”*/
 /*#include<iostream>
 const short TAM = 40;
 
-void Ingresar();
-void BorrarVocales(char vec[],short);
-void Mostrar(char vec[],short);
-
-int main()
-{
-	char vec[TAM]{"Hola soy un programador"};
-	Ingresar();
-	Mostrar(vec, TAM);
-	BorrarVocales(vec,TAM);
-	
-return 0;
-}
-void Ingresar()
-{
-	//std::cout << "Ingrese una oración" << std::endl;
-	//std::cin.getline(oracion, indice);
-}
-void BorrarVocales(char vec[],short tam)
-{
-	
-	for (size_t i = 0; i < tam; i++)
-	{
-		switch (vec[i])
-		{
-		case 'a':
-			
-			break;
-		case 'e':
-			
-			break;
-		case 'i':
-			
-			break;
-		case 'o':
-			
-			break;
-		case 'u':
-			
-			break;
-		default:
-			std::cout <<vec[i];
-			break;
-		};
-	}
-}
-void Mostrar(char vec[], short tam)
-{
-	int i = 0;
-	
-	for (size_t i = 0; i < tam; i++)
-	{
-		std::cout<<vec[i];
-	}
-	std::cout << std::endl;
-};*/
-/*Ejercicio #10  
-Crear un programa donde se 1)ingrese una oración y luego se 2)cifre utilizando el método  Cesar cipher​ con un
-desplazamiento configurable*/
-/*#include<iostream>
-const short TAM = 40;
-
-int Ingresar(short v);
-short LimiteVector(char vec[],short);
-void Cifrar(char vec[],short,short);
+void Ingresar(char vec[], short);
+short LimiteVector(char vec[], short);
+void InvertirPalabras(char vec[], short , char vec2[], short ,short&);
 void Mostrar(char vec[], short);
 
 int main()
 {
-	char vec[TAM]{"Hola soy un programador"};
-	short desplazamiento = 3;
-	short limite = 0;
-	//desplazamiento = Ingresar(desplazamiento);
-	Mostrar(vec,TAM);
-	limite=LimiteVector(vec, TAM);
-	Cifrar(vec,limite,desplazamiento);
-return 0;
+	short invIndex = 0;
+	char vec[TAM]{ "Hola soy un programador" };
+	char vec2[TAM];
+	Ingresar(vec, TAM);
+	InvertirPalabras(vec, TAM, vec2,TAM, invIndex);
+	Mostrar(vec, TAM);
+	return 0;
 }
-int Ingresar(short v)
+void Ingresar(char vec[], short tam)
 {
-	short valor;
 	//std::cout << "Ingrese una oración" << std::endl;
-	//std::cin.getline(oracion, indice);
-	std::cout << "Tipo de desplazamiento" << std::endl;
-	std::cin >> valor;
-	return valor;
-};
-void Cifrar(char vec[],short tam,short d)
-{
-	for (size_t i = 0; i < tam; i++)
-	{
-		if (vec[i]!=' ')
-		{
-			vec[i] += d;
-		}
-		else
-		{
-
-		}
-	}
-	Mostrar(vec,tam);
+	//std::cin.getline(vec, tam);
 };
 void Mostrar(char vec[], short tam)
 {
-	int i = 0;
-
 	for (size_t i = 0; i < tam; i++)
 	{
 		std::cout << vec[i];
 	}
-	std::cout << std::endl;
-}
-short LimiteVector(char vec[],short tam)
+};
+short LimiteVector(char vec[], short tam)
 {
-	short cont=0;
+	short cont = 0;
 	while (vec[cont] != '\0')
 	{
 		cont++;
 	}
+	cont--;
 	return cont;
+}
+void InvertirPalabras(char vec[], short tam, char vec2[], short tam2,short& invIndex)
+{
+	short inicio = 0;
+	short limite = 0;
+	limite = LimiteVector(vec, TAM);
+	do
+	{
+		inicio = limite;
+
+		while (vec[inicio] != ' ' && inicio >= 0)
+		{
+			inicio--;
+		}
+
+		for (size_t i = inicio+1; i <= limite; i++)
+		{
+			vec2[invIndex] = vec[i];
+			invIndex++;
+		}
+		vec2[invIndex] = ' ';
+		invIndex++;
+
+		limite = inicio - 1;
+	} while (inicio >= 0);
+	Mostrar(vec2,invIndex);
 };*/
+/*Ejercicio #6  
+Crear un programa donde se ingrese una oración y nos muestre una combinación de  números compuesta por la cantidad de
+letras de cada palabra.
+    EJ: “Hola soy un programador”  RES: “4-3-2-11”*/
+	/*#include<iostream>
+	//VARIABLES
+	const short indice = 40;
+	char oracion[indice]{ '-' };
+	short duplicado[indice];
+	short contar = 0;
+	short posicionEspacio = 0;
+	short palabra = 0;
+	short x = 0;
+	short limite = 0;
+	//INPUT
+	void Ingresar()
+	{
+		std::cout << "Ingrese una oración" << std::endl;
+		std::cin.getline(oracion, indice);
+	};
+	void ContarPalabra()
+	{
+
+		for (size_t i = 0; i < indice; i++)
+		{
+			if (oracion[i]!='\0')
+			{
+				palabra++;
+			}
+		}
+		for (size_t i = 0; i <= palabra; i++)
+		{
+			if (oracion[i]!=' ' && oracion[i]!='\0')
+			{
+				contar++;
+			}
+			else
+			{
+				std::cout << contar << ",";
+				contar = 0;
+
+			}
+
+		}
+
+	};
+	int main()
+	{
+		Ingresar();
+		ContarPalabra();
+	return 0;
+	}*/
+	/*Ejercicio #7 
+	Crear un programa donde se ingrese una oración y luego una palabra para verificar si
+	existe en la oración.*/
+	/*#include<iostream>
+				//VARIABLES
+	const short index = 10;
+	const short indice = 40;
+	char oracion[indice]{ "Hola soy un programador" };
+	char palabra[index]{};
+	char ayuda[index];
+	bool buscar = false;
+	short final = 0;
+	int inicio = 0;
+	short largoOracion = 0;
+	int largoPalabra = 0;
+	//INPUT
+	void Ingresar()
+	{
+		//std::cout << "Ingrese una oración" << std::endl;
+		//std::cin.getline(oracion, indice);
+		std::cout << "Ingrese la palabra a buscar" << std::endl;
+		std::cin.getline(palabra, indice);
+	};
+	void BuscarPalabra()
+	{
+		while (oracion[final] != '\0')
+		{
+			final++;//Recorre el array hasta el final
+		}
+		largoOracion = final;
+		final = 0;
+		while (palabra[final] != '\0')
+		{
+			final++;//Recorre la palabra hasta el final
+		}
+		largoPalabra = final;
+		final = 0;
+		while (inicio <= largoOracion - largoPalabra && !buscar)
+		{
+			buscar = true;
+			final = 0;
+			for (size_t i = inicio; i < inicio + largoPalabra; i++)
+			{
+				if (oracion[i] != palabra[final])
+				{
+					buscar = false;
+					break;
+				}
+				final++;
+			}
+			while (oracion[inicio] != ' ' && oracion[inicio] != '\0')
+			{
+				inicio++;
+			}
+			inicio++;
+		}
+	};
+	//OUTPUT
+	void Mostrar()
+	{
+		if (buscar)
+		{
+			std::cout << palabra << "\nSe encuentra en la oracion " << oracion << std::endl;
+		}
+		else
+		{
+			std::cout << "No se encuentra" << std::endl;
+		}
+	};
+	int main()
+	{
+		Ingresar();
+		BuscarPalabra();
+		Mostrar();
+		return 0;
+	}*/
+	/*Ejercicio #8 
+	Crear un programa donde se ingrese una oración y luego se pase cada una de sus letras  a mayúscula.*/
+	/*#include<iostream>
+				//VARIABLES
+	const short indice = 40;
+
+	char duplicado[indice]{};
+	short conta = 0;
+
+	//INPUT
+	void Ingresar()
+	{
+		//std::cout << "Ingrese una oración" << std::endl;
+		//std::cin.getline(oracion, indice);
+	};
+	void limiteArray(char oracion[indice])
+	{
+		while (oracion[conta] != '\0')
+		{
+			conta++;
+		}
+	};
+	void Mayuscula(char oracion[indice])
+	{
+		limiteArray(oracion);
+		for (size_t i = 0; i < conta; i++)
+		{
+			if (oracion[i] > 92)
+			{
+				oracion[i] -= 32;
+				std::cout << oracion[i];
+			}
+			else
+			{
+				oracion[i];
+				std::cout << oracion[i];
+			}
+		}
+	};
+	int main()
+	{
+		char oracion[indice]{ "Hola soy programador" };
+		//Ingresar();
+		Mayuscula(oracion);
+		return 0;
+	}*/
+	/*Ejercicio #9 
+	Crear un programa donde se (1)ingrese una oración y luego (2)borre todas las vocales que tenga.*/
+	/*#include<iostream>
+	const short TAM = 40;
+
+	void Ingresar();
+	void BorrarVocales(char vec[],short);
+	void Mostrar(char vec[],short);
+
+	int main()
+	{
+		char vec[TAM]{"Hola soy un programador"};
+		Ingresar();
+		Mostrar(vec, TAM);
+		BorrarVocales(vec,TAM);
+
+	return 0;
+	}
+	void Ingresar()
+	{
+		//std::cout << "Ingrese una oración" << std::endl;
+		//std::cin.getline(oracion, indice);
+	}
+	void BorrarVocales(char vec[],short tam)
+	{
+
+		for (size_t i = 0; i < tam; i++)
+		{
+			switch (vec[i])
+			{
+			case 'a':
+
+				break;
+			case 'e':
+
+				break;
+			case 'i':
+
+				break;
+			case 'o':
+
+				break;
+			case 'u':
+
+				break;
+			default:
+				std::cout <<vec[i];
+				break;
+			};
+		}
+	}
+	void Mostrar(char vec[], short tam)
+	{
+		int i = 0;
+
+		for (size_t i = 0; i < tam; i++)
+		{
+			std::cout<<vec[i];
+		}
+		std::cout << std::endl;
+	};*/
+	/*Ejercicio #10  
+	Crear un programa donde se 1)ingrese una oración y luego se 2)cifre utilizando el método  Cesar cipher​ con un
+	desplazamiento configurable*/
+	/*#include<iostream>
+	const short TAM = 40;
+
+	int Ingresar(short v);
+	short LimiteVector(char vec[],short);
+	void Cifrar(char vec[],short,short);
+	void Mostrar(char vec[], short);
+
+	int main()
+	{
+		char vec[TAM]{"Hola soy un programador"};
+		short desplazamiento = 3;
+		short limite = 0;
+		//desplazamiento = Ingresar(desplazamiento);
+		Mostrar(vec,TAM);
+		limite=LimiteVector(vec, TAM);
+		Cifrar(vec,limite,desplazamiento);
+	return 0;
+	}
+	int Ingresar(short v)
+	{
+		short valor;
+		//std::cout << "Ingrese una oración" << std::endl;
+		//std::cin.getline(oracion, indice);
+		std::cout << "Tipo de desplazamiento" << std::endl;
+		std::cin >> valor;
+		return valor;
+	};
+	void Cifrar(char vec[],short tam,short d)
+	{
+		for (size_t i = 0; i < tam; i++)
+		{
+			if (vec[i]!=' ')
+			{
+				vec[i] += d;
+			}
+			else
+			{
+
+			}
+		}
+		Mostrar(vec,tam);
+	};
+	void Mostrar(char vec[], short tam)
+	{
+		int i = 0;
+
+		for (size_t i = 0; i < tam; i++)
+		{
+			std::cout << vec[i];
+		}
+		std::cout << std::endl;
+	}
+	short LimiteVector(char vec[],short tam)
+	{
+		short cont=0;
+		while (vec[cont] != '\0')
+		{
+			cont++;
+		}
+		return cont;
+	};*/
