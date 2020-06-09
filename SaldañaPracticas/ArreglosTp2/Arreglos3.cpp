@@ -425,29 +425,48 @@ EJ: “Hola soy un programador”  RES: “rodamargorp nu yos aloH”*/
 				return 0;
 			}*/
 			/*Ejercicio #8 
-			Crear un programa donde se ingrese una oración y luego se pase cada una de sus letras  a mayúscula.
-			#include<iostream>
+			Crear un programa donde se ingrese una oración y luego se pase cada una de sus letras  a mayúscula.*/
 			#include<iostream>
 			//VARIABLES
-			const short indice = 20;
-			char oracion[indice]{ '-' };
-			short contador = 0;
+			const short indice = 40;
+			char oracion[indice]{"Hola soy programador"};
+			char duplicado[indice]{};
+			short conta=0;
+			
 			//INPUT
 			void Ingresar()
 			{
-				std::cout << "Ingrese una oración" << std::endl;
-				std::cin.getline(oracion, indice);
+				//std::cout << "Ingrese una oración" << std::endl;
+				//std::cin.getline(oracion, indice);
 			};
-			//OUTPUT
-			void Mostrar()
+			void limiteArray()
 			{
-				system("CLS");
-				std::cout << oracion << "\nCantidad de vocales que contiene " << contador << std::endl;
+				while (oracion[conta] != '\0')
+				{
+					conta++;
+				}
+			};
+			void Mayuscula()
+			{
+				limiteArray();
+				for (size_t i = 0; i < conta; i++)
+				{
+					if (oracion[i] > 92)
+					{
+						oracion[i] -= 32;
+						std::cout << oracion[i];
+					}
+					else
+					{
+						oracion[i];
+						std::cout << oracion[i];
+					}
+				}
 			};
 			int main()
 			{
 				Ingresar();
-				Mostrar();
+				Mayuscula();
 			return 0;
 			}
 			/*Ejercicio #9 
