@@ -426,97 +426,132 @@ EJ: “Hola soy un programador”  RES: “rodamargorp nu yos aloH”*/
 			}*/
 			/*Ejercicio #8 
 			Crear un programa donde se ingrese una oración y luego se pase cada una de sus letras  a mayúscula.*/
-			#include<iostream>
+/*#include<iostream>
 			//VARIABLES
-			const short indice = 40;
+const short indice = 40;
+
+char duplicado[indice]{};
+short conta = 0;
+
+//INPUT
+void Ingresar()
+{
+	//std::cout << "Ingrese una oración" << std::endl;
+	//std::cin.getline(oracion, indice);
+};
+void limiteArray(char oracion[indice])
+{
+	while (oracion[conta] != '\0')
+	{
+		conta++;
+	}
+};
+void Mayuscula(char oracion[indice])
+{
+	limiteArray(oracion);
+	for (size_t i = 0; i < conta; i++)
+	{
+		if (oracion[i] > 92)
+		{
+			oracion[i] -= 32;
+			std::cout << oracion[i];
+		}
+		else
+		{
+			oracion[i];
+			std::cout << oracion[i];
+		}
+	}
+};
+int main()
+{
+	char oracion[indice]{ "Hola soy programador" };
+	//Ingresar();
+	Mayuscula(oracion);
+	return 0;
+}*/
+/*Ejercicio #9 
+Crear un programa donde se (1)ingrese una oración y luego (2)borre todas las vocales que tenga.*/
+#include<iostream>
+const short TAM = 40;
+
+void Ingresar();
+void BorrarVocales(char vec[],short);
+void Mostrar(char vec[],short);
+
+int main()
+{
+	char vec[TAM]{"Hola soy un programador"};
+	Ingresar();
+	Mostrar(vec, TAM);
+	BorrarVocales(vec,TAM);
+	
+return 0;
+}
+void Ingresar()
+{
+	//std::cout << "Ingrese una oración" << std::endl;
+	//std::cin.getline(oracion, indice);
+}
+void BorrarVocales(char vec[],short tam)
+{
+	
+	for (size_t i = 0; i < tam; i++)
+	{
+		switch (vec[i])
+		{
+		case 'a':
 			
-			char duplicado[indice]{};
-			short conta=0;
+			break;
+		case 'e':
 			
-			//INPUT
-			void Ingresar()
-			{
-				//std::cout << "Ingrese una oración" << std::endl;
-				//std::cin.getline(oracion, indice);
-			};
-			void limiteArray(char oracion[indice])
-			{
-				while (oracion[conta] != '\0')
-				{
-					conta++;
-				}
-			};
-			void Mayuscula(char oracion[indice])
-			{
-				limiteArray(oracion);
-				for (size_t i = 0; i < conta; i++)
-				{
-					if (oracion[i] > 92)
-					{
-						oracion[i] -= 32;
-						std::cout << oracion[i];
-					}
-					else
-					{
-						oracion[i];
-						std::cout << oracion[i];
-					}
-				}
-			};
-			int main()
-			{
-				char oracion[indice]{ "Hola soy programador" };
-				//Ingresar();
-				Mayuscula(oracion);
-			return 0;
-			}
-			/*Ejercicio #9 
-			Crear un programa donde se ingrese una oración y luego borre todas las vocales que  tenga.
-			#include<iostream>
-			//VARIABLES
-			const short indice = 20;
-			char oracion[indice]{ '-' };
-			short contador = 0;
-			//INPUT
-			void Ingresar()
-			{
-				std::cout << "Ingrese una oración" << std::endl;
-				std::cin.getline(oracion, indice);
-			};
-			//OUTPUT
-			void Mostrar()
-			{
-				system("CLS");
-				std::cout << oracion << "\nCantidad de vocales que contiene " << contador << std::endl;
-			};
-			int main()
-			{
-				Ingresar();
-				Mostrar();
-			return 0;
-			}
-			Ejercicio #10  
-			Crear un programa donde se ingrese una oración y luego se cifre utilizando el método  Caesar cipher​ con un desplazamiento configurable
-			#include<iostream>
-			//VARIABLES
-			const short indice = 20;
-			char oracion[indice]{ '-' };
-			short contador = 0;
-			//INPUT
-			void Ingresar()
-			{
-				std::cout << "Ingrese una oración" << std::endl;
-				std::cin.getline(oracion, indice);
-			};
-			//OUTPUT
-			void Mostrar()
-			{
-				system("CLS");
-				std::cout << oracion << "\nCantidad de vocales que contiene " << contador << std::endl;
-			};
-			int main()
-			{
-				Ingresar();
-				Mostrar();
-			return 0;
-			}*/
+			break;
+		case 'i':
+			
+			break;
+		case 'o':
+			
+			break;
+		case 'u':
+			
+			break;
+		default:
+			std::cout <<vec[i];
+			break;
+		};
+	}
+}
+void Mostrar(char vec[], short tam)
+{
+	int i = 0;
+	
+	for (size_t i = 0; i < tam; i++)
+	{
+		std::cout<<vec[i];
+	}
+	std::cout << std::endl;
+};
+/*Ejercicio #10  
+Crear un programa donde se 1)ingrese una oración y luego se 2)cifre utilizando el método  Caesar cipher​ con un
+desplazamiento configurable*/
+/*#include<iostream>
+const short indice = 20;
+
+void Ingresar();
+void Cifrar();
+
+int main()
+{
+	char oracion[indice]{"Hola soy un programador"};
+	Ingresar();
+	Cifrar();
+return 0;
+}
+void Ingresar()
+{
+	//std::cout << "Ingrese una oración" << std::endl;
+	//std::cin.getline(oracion, indice);
+};
+void Cifrar()
+{
+}*/
