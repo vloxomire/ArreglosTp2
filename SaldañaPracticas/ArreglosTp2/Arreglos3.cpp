@@ -429,7 +429,7 @@ EJ: “Hola soy un programador”  RES: “rodamargorp nu yos aloH”*/
 			#include<iostream>
 			//VARIABLES
 			const short indice = 40;
-			char oracion[indice]{"Hola soy programador"};
+			
 			char duplicado[indice]{};
 			short conta=0;
 			
@@ -439,16 +439,16 @@ EJ: “Hola soy un programador”  RES: “rodamargorp nu yos aloH”*/
 				//std::cout << "Ingrese una oración" << std::endl;
 				//std::cin.getline(oracion, indice);
 			};
-			void limiteArray()
+			void limiteArray(char oracion[indice])
 			{
 				while (oracion[conta] != '\0')
 				{
 					conta++;
 				}
 			};
-			void Mayuscula()
+			void Mayuscula(char oracion[indice])
 			{
-				limiteArray();
+				limiteArray(oracion);
 				for (size_t i = 0; i < conta; i++)
 				{
 					if (oracion[i] > 92)
@@ -465,8 +465,9 @@ EJ: “Hola soy un programador”  RES: “rodamargorp nu yos aloH”*/
 			};
 			int main()
 			{
-				Ingresar();
-				Mayuscula();
+				char oracion[indice]{ "Hola soy programador" };
+				//Ingresar();
+				Mayuscula(oracion);
 			return 0;
 			}
 			/*Ejercicio #9 
