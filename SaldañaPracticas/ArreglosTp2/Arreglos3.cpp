@@ -472,7 +472,7 @@ int main()
 }*/
 /*Ejercicio #9 
 Crear un programa donde se (1)ingrese una oración y luego (2)borre todas las vocales que tenga.*/
-#include<iostream>
+/*#include<iostream>
 const short TAM = 40;
 
 void Ingresar();
@@ -530,28 +530,69 @@ void Mostrar(char vec[], short tam)
 		std::cout<<vec[i];
 	}
 	std::cout << std::endl;
-};
+};*/
 /*Ejercicio #10  
-Crear un programa donde se 1)ingrese una oración y luego se 2)cifre utilizando el método  Caesar cipher​ con un
+Crear un programa donde se 1)ingrese una oración y luego se 2)cifre utilizando el método  Cesar cipher​ con un
 desplazamiento configurable*/
 /*#include<iostream>
-const short indice = 20;
+const short TAM = 40;
 
-void Ingresar();
-void Cifrar();
+int Ingresar(short v);
+short LimiteVector(char vec[],short);
+void Cifrar(char vec[],short,short);
+void Mostrar(char vec[], short);
 
 int main()
 {
-	char oracion[indice]{"Hola soy un programador"};
-	Ingresar();
-	Cifrar();
+	char vec[TAM]{"Hola soy un programador"};
+	short desplazamiento = 3;
+	short limite = 0;
+	//desplazamiento = Ingresar(desplazamiento);
+	Mostrar(vec,TAM);
+	limite=LimiteVector(vec, TAM);
+	Cifrar(vec,limite,desplazamiento);
 return 0;
 }
-void Ingresar()
+int Ingresar(short v)
 {
+	short valor;
 	//std::cout << "Ingrese una oración" << std::endl;
 	//std::cin.getline(oracion, indice);
+	std::cout << "Tipo de desplazamiento" << std::endl;
+	std::cin >> valor;
+	return valor;
 };
-void Cifrar()
+void Cifrar(char vec[],short tam,short d)
 {
-}*/
+	for (size_t i = 0; i < tam; i++)
+	{
+		if (vec[i]!=' ')
+		{
+			vec[i] += d;
+		}
+		else
+		{
+
+		}
+	}
+	Mostrar(vec,tam);
+};
+void Mostrar(char vec[], short tam)
+{
+	int i = 0;
+
+	for (size_t i = 0; i < tam; i++)
+	{
+		std::cout << vec[i];
+	}
+	std::cout << std::endl;
+}
+short LimiteVector(char vec[],short tam)
+{
+	short cont=0;
+	while (vec[cont] != '\0')
+	{
+		cont++;
+	}
+	return cont;
+};*/
